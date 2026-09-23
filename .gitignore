@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Trained weights are ~17 MB — keep them out of git, they come from Colab
+backend/models/*.pt
+backend/data/tts_cache/
+
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

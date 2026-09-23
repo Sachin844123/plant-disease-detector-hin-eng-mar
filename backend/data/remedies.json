@@ -1,0 +1,888 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "classes": 38,
+    "dataset": "PlantVillage (38-class colour split)",
+    "languages": ["en", "hi", "mr"],
+    "dosage_basis": "Commonly recommended doses in Indian ICAR / Krishi Vigyan Kendra advisories. Doses are per litre of water for knapsack spraying unless stated otherwise.",
+    "disclaimer": {
+      "en": "This is an AI-based advisory tool. Confirm the diagnosis and dosage with your nearest Krishi Vigyan Kendra or agriculture officer before spraying.",
+      "hi": "यह एक AI आधारित सलाह उपकरण है। छिड़काव से पहले अपने नज़दीकी कृषि विज्ञान केंद्र या कृषि अधिकारी से रोग और मात्रा की पुष्टि करें।",
+      "mr": "हे एआय आधारित सल्ला साधन आहे. फवारणी करण्यापूर्वी जवळच्या कृषी विज्ञान केंद्रात किंवा कृषी अधिकाऱ्याकडून रोग व मात्रा तपासून घ्या."
+    }
+  },
+
+  "Apple___Apple_scab": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Venturia inaequalis (fungus)",
+    "crop": { "en": "Apple", "hi": "सेब", "mr": "सफरचंद" },
+    "disease": { "en": "Apple Scab", "hi": "सेब का स्कैब (खुरंड रोग)", "mr": "सफरचंदावरील खरपुडी (स्कॅब)" },
+    "symptoms": {
+      "en": "Olive-green to black velvety spots on leaves that later turn brown and crack. Infected leaves fall early and fruits develop rough scabby patches.",
+      "hi": "पत्तियों पर जैतूनी-हरे से काले मखमली धब्बे बनते हैं जो बाद में भूरे होकर फट जाते हैं। पत्तियाँ जल्दी गिर जाती हैं और फलों पर खुरदरे धब्बे आ जाते हैं।",
+      "mr": "पानांवर जैतुनी-हिरवे ते काळे मखमली ठिपके दिसतात, नंतर ते तपकिरी होऊन तडे जातात. पाने लवकर गळतात व फळांवर खरखरीत डाग पडतात."
+    },
+    "remedy": {
+      "en": "Spray Mancozeb 75% WP at 3 g per litre of water, or Dodine 65% WP at 0.75 g per litre. Repeat every 10-12 days during wet weather. Collect and burn fallen leaves.",
+      "hi": "मैंकोज़ेब 75% WP 3 ग्राम प्रति लीटर पानी में, या डोडीन 65% WP 0.75 ग्राम प्रति लीटर छिड़कें। बरसात के मौसम में हर 10-12 दिन पर दोहराएँ। गिरी हुई पत्तियाँ इकट्ठा करके जला दें।",
+      "mr": "मॅन्कोझेब ७५% WP २.५ ते ३ ग्रॅम प्रति लिटर पाण्यात, किंवा डोडीन ६५% WP ०.७५ ग्रॅम प्रति लिटर फवारा. पावसाळी हवामानात दर १०-१२ दिवसांनी फवारणी करा. गळलेली पाने गोळा करून जाळून टाका."
+    },
+    "prevention": {
+      "en": "Prune to open the canopy for air flow, avoid overhead irrigation, and plant scab-resistant varieties.",
+      "hi": "हवा के आवागमन के लिए छँटाई करें, ऊपर से सिंचाई न करें, और स्कैब-रोधी किस्में लगाएँ।",
+      "mr": "हवा खेळती राहण्यासाठी छाटणी करा, वरून पाणी देऊ नका आणि रोगप्रतिकारक जाती लावा."
+    }
+  },
+
+  "Apple___Black_rot": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Botryosphaeria obtusa (fungus)",
+    "crop": { "en": "Apple", "hi": "सेब", "mr": "सफरचंद" },
+    "disease": { "en": "Black Rot", "hi": "काला सड़न (ब्लैक रॉट)", "mr": "काळी कूज (ब्लॅक रॉट)" },
+    "symptoms": {
+      "en": "Brown circular leaf spots with a purple border, often called frog-eye spot. Branches develop sunken cankers and fruit rots from the blossom end with black rings.",
+      "hi": "पत्तियों पर बैंगनी किनारे वाले भूरे गोल धब्बे, जिन्हें मेंढक-आँख धब्बा कहते हैं। टहनियों पर धँसे हुए कैंकर बनते हैं और फल काले छल्लों के साथ सड़ता है।",
+      "mr": "पानांवर जांभळ्या कडेचे तपकिरी गोल ठिपके (बेडूक-डोळा ठिपके) दिसतात. फांद्यांवर खोलगट कॅंकर तयार होतात व फळ काळ्या वर्तुळांसह कुजते."
+    },
+    "remedy": {
+      "en": "Prune out and burn cankered branches 15 cm below the canker. Spray Captan 50% WP at 2 g per litre or Thiophanate-methyl 70% WP at 1 g per litre, starting at petal fall.",
+      "hi": "कैंकर वाली टहनियों को कैंकर से 15 सेमी नीचे से काटकर जला दें। पंखुड़ी गिरने के समय से कैप्टान 50% WP 2 ग्राम प्रति लीटर या थायोफनेट-मिथाइल 70% WP 1 ग्राम प्रति लीटर छिड़कें।",
+      "mr": "कॅंकर असलेल्या फांद्या कॅंकरच्या १५ सेंमी खालून कापून जाळा. पाकळ्या गळल्यानंतर कॅप्टान ५०% WP २ ग्रॅम प्रति लिटर किंवा थायोफेनेट-मिथाइल ७०% WP १ ग्रॅम प्रति लिटर फवारा."
+    },
+    "prevention": {
+      "en": "Remove mummified fruit and dead wood from the orchard, and keep trees healthy with balanced manuring.",
+      "hi": "बाग से सूखे-सिकुड़े फल और मृत लकड़ी हटा दें, और संतुलित खाद देकर पेड़ स्वस्थ रखें।",
+      "mr": "बागेतील वाळलेली फळे व मृत लाकूड काढून टाका आणि संतुलित खत देऊन झाडे निरोगी ठेवा."
+    }
+  },
+
+  "Apple___Cedar_apple_rust": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Gymnosporangium juniperi-virginianae (fungus)",
+    "crop": { "en": "Apple", "hi": "सेब", "mr": "सफरचंद" },
+    "disease": { "en": "Cedar Apple Rust", "hi": "सीडर सेब रतुआ (रस्ट)", "mr": "सीडर सफरचंद तांबेरा (रस्ट)" },
+    "symptoms": {
+      "en": "Bright orange-yellow spots on the upper leaf surface with small black dots in the centre. Tube-like growths appear on the underside of the leaf.",
+      "hi": "पत्ती की ऊपरी सतह पर चमकीले नारंगी-पीले धब्बे जिनके बीच में छोटे काले बिंदु होते हैं। पत्ती की निचली सतह पर नलिकानुमा रचनाएँ बनती हैं।",
+      "mr": "पानाच्या वरच्या बाजूस भडक नारिंगी-पिवळे ठिपके व त्यांच्या मध्यभागी काळे बिंदू दिसतात. पानाच्या खालच्या बाजूस नळीसारखी वाढ दिसते."
+    },
+    "remedy": {
+      "en": "Spray Mancozeb 75% WP at 2.5 g per litre or Myclobutanil 10% WP at 1 g per litre from pink bud stage, repeating every 10 days for 3 sprays.",
+      "hi": "गुलाबी कली अवस्था से मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर या माइक्लोब्यूटानिल 10% WP 1 ग्राम प्रति लीटर, हर 10 दिन पर 3 छिड़काव करें।",
+      "mr": "गुलाबी कळी अवस्थेपासून मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर किंवा मायक्लोब्युटानिल १०% WP १ ग्रॅम प्रति लिटर, दर १० दिवसांनी ३ फवारण्या करा."
+    },
+    "prevention": {
+      "en": "Remove juniper or cedar trees within 500 m of the orchard, as the fungus needs both hosts to complete its life cycle.",
+      "hi": "बाग के 500 मीटर के भीतर जुनिपर या देवदार के पेड़ हटा दें, क्योंकि कवक को जीवनचक्र पूरा करने के लिए दोनों पौधे चाहिए।",
+      "mr": "बागेच्या ५०० मीटर परिसरातील जुनिपर किंवा देवदार झाडे काढून टाका, कारण बुरशीला जीवनचक्रासाठी दोन्ही यजमान लागतात."
+    }
+  },
+
+  "Apple___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Apple", "hi": "सेब", "mr": "सफरचंद" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy. Colour is uniform green with no spots, blight or insect damage.",
+      "hi": "पत्ती स्वस्थ दिख रही है। रंग एक समान हरा है, कोई धब्बा, झुलसा या कीट क्षति नहीं है।",
+      "mr": "पान निरोगी दिसत आहे. रंग एकसारखा हिरवा असून कोणतेही ठिपके, करपा किंवा किडीचा प्रादुर्भाव नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। अपनी नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Keep monitoring weekly, especially after rain. Maintain balanced NPK and prune for good air movement.",
+      "hi": "हर सप्ताह, विशेषकर बारिश के बाद निगरानी करते रहें। संतुलित NPK दें और हवा के लिए छँटाई करें।",
+      "mr": "दर आठवड्याला, विशेषतः पावसानंतर निरीक्षण करा. संतुलित NPK द्या व हवेसाठी छाटणी करा."
+    }
+  },
+
+  "Blueberry___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Blueberry", "hi": "ब्लूबेरी", "mr": "ब्लूबेरी" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no spots or discolouration.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई धब्बा या रंग बदलाव नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, कोणतेही ठिपके किंवा रंगबदल नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Maintain acidic soil pH of 4.5 to 5.5, mulch well and inspect plants weekly.",
+      "hi": "मिट्टी का pH 4.5 से 5.5 अम्लीय रखें, अच्छी पलवार करें और साप्ताहिक निरीक्षण करें।",
+      "mr": "जमिनीचा सामू ४.५ ते ५.५ आम्लधर्मी ठेवा, आच्छादन करा आणि दर आठवड्याला निरीक्षण करा."
+    }
+  },
+
+  "Cherry_(including_sour)___Powdery_mildew": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Podosphaera clandestina (fungus)",
+    "crop": { "en": "Cherry", "hi": "चेरी", "mr": "चेरी" },
+    "disease": { "en": "Powdery Mildew", "hi": "चूर्णिल आसिता (पाउडरी मिल्ड्यू)", "mr": "भुरी रोग (पावडरी मिल्ड्यू)" },
+    "symptoms": {
+      "en": "White powdery patches on young leaves and shoots. Leaves curl, twist upward and stay small.",
+      "hi": "नई पत्तियों और टहनियों पर सफेद चूर्ण जैसे धब्बे। पत्तियाँ मुड़ जाती हैं, ऊपर की ओर सिकुड़ती हैं और छोटी रह जाती हैं।",
+      "mr": "कोवळ्या पानांवर व फांद्यांवर पांढरी भुकटीसारखी बुरशी दिसते. पाने वळतात, वरच्या बाजूस मुडपतात व लहान राहतात."
+    },
+    "remedy": {
+      "en": "Spray Wettable Sulphur 80% WP at 2.5 g per litre, or Myclobutanil 10% WP at 1 g per litre. Repeat after 12-15 days. Do not spray sulphur when temperature is above 32 C.",
+      "hi": "घुलनशील गंधक 80% WP 2.5 ग्राम प्रति लीटर, या माइक्लोब्यूटानिल 10% WP 1 ग्राम प्रति लीटर छिड़कें। 12-15 दिन बाद दोहराएँ। 32 डिग्री से अधिक तापमान पर गंधक न छिड़कें।",
+      "mr": "पाण्यात मिसळणारे गंधक ८०% WP २.५ ग्रॅम प्रति लिटर, किंवा मायक्लोब्युटानिल १०% WP १ ग्रॅम प्रति लिटर फवारा. १२-१५ दिवसांनी पुन्हा फवारा. तापमान ३२ अंशांवर असताना गंधक फवारू नका."
+    },
+    "prevention": {
+      "en": "Prune water sprouts, avoid excess nitrogen, and keep the canopy open so leaves dry quickly.",
+      "hi": "अनावश्यक कोंपलें काटें, अधिक नाइट्रोजन से बचें, और छत्र खुला रखें ताकि पत्तियाँ जल्दी सूखें।",
+      "mr": "अनावश्यक फूट काढा, जास्त नत्र टाळा आणि पाने लवकर वाळण्यासाठी झाड मोकळे ठेवा."
+    }
+  },
+
+  "Cherry_(including_sour)___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Cherry", "hi": "चेरी", "mr": "चेरी" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no powdery growth or spots.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई चूर्ण या धब्बा नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, भुरी किंवा ठिपके नाहीत."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Inspect new shoots weekly during humid weather, when powdery mildew usually starts.",
+      "hi": "नम मौसम में नई कोंपलों का साप्ताहिक निरीक्षण करें, तभी चूर्णिल आसिता शुरू होती है।",
+      "mr": "दमट हवामानात नवीन फुटीचे दर आठवड्याला निरीक्षण करा, याच काळात भुरी सुरू होते."
+    }
+  },
+
+  "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Cercospora zeae-maydis (fungus)",
+    "crop": { "en": "Maize", "hi": "मक्का", "mr": "मका" },
+    "disease": { "en": "Gray Leaf Spot", "hi": "धूसर पर्ण धब्बा (ग्रे लीफ स्पॉट)", "mr": "करडे पान ठिपके (ग्रे लीफ स्पॉट)" },
+    "symptoms": {
+      "en": "Long, narrow, rectangular grey to tan lesions running parallel to the leaf veins. Lesions join together and dry up the whole leaf.",
+      "hi": "पत्ती की शिराओं के समानांतर लंबे, पतले, आयताकार धूसर से भूरे घाव। घाव आपस में मिलकर पूरी पत्ती सुखा देते हैं।",
+      "mr": "पानाच्या शिरांना समांतर लांब, अरुंद, आयताकृती करडे ते तपकिरी चट्टे दिसतात. चट्टे एकमेकांत मिसळून संपूर्ण पान वाळते."
+    },
+    "remedy": {
+      "en": "Spray Mancozeb 75% WP at 2.5 g per litre, or Azoxystrobin 11% + Tebuconazole 18.3% SC at 1 ml per litre at first appearance. Repeat after 12-15 days.",
+      "hi": "रोग दिखते ही मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर, या एज़ॉक्सीस्ट्रोबिन 11% + टेबुकोनाज़ोल 18.3% SC 1 मिली प्रति लीटर छिड़कें। 12-15 दिन बाद दोहराएँ।",
+      "mr": "रोग दिसताच मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर, किंवा अॅझॉक्सिस्ट्रोबिन ११% + टेब्युकोनॅझोल १८.३% SC १ मिली प्रति लिटर फवारा. १२-१५ दिवसांनी पुन्हा फवारा."
+    },
+    "prevention": {
+      "en": "Rotate maize with soybean or pulses, plough in crop residue after harvest, and avoid very dense planting.",
+      "hi": "मक्का के साथ सोयाबीन या दलहन की अदला-बदली करें, कटाई के बाद अवशेष जोत दें, और बहुत घनी बुवाई से बचें।",
+      "mr": "मक्याऐवजी सोयाबीन किंवा कडधान्याची फेरपालट करा, काढणीनंतर धसकटे नांगरून गाडा आणि दाट लागवड टाळा."
+    }
+  },
+
+  "Corn_(maize)___Common_rust_": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Puccinia sorghi (fungus)",
+    "crop": { "en": "Maize", "hi": "मक्का", "mr": "मका" },
+    "disease": { "en": "Common Rust", "hi": "सामान्य रतुआ (कॉमन रस्ट)", "mr": "सामान्य तांबेरा (कॉमन रस्ट)" },
+    "symptoms": {
+      "en": "Small cinnamon-brown powdery pustules scattered on both leaf surfaces. Rubbing a leaf leaves rust-coloured powder on the fingers.",
+      "hi": "पत्ती की दोनों सतहों पर छोटे दालचीनी-भूरे चूर्णिल फफोले। पत्ती रगड़ने पर उँगलियों पर जंग जैसा चूर्ण लगता है।",
+      "mr": "पानाच्या दोन्ही बाजूंवर लहान दालचिनी-तपकिरी भुकटीसारखे फोड दिसतात. पान चोळल्यास बोटांना गंजासारखी भुकटी लागते."
+    },
+    "remedy": {
+      "en": "Spray Mancozeb 75% WP at 2.5 g per litre or Propiconazole 25% EC at 1 ml per litre. Two sprays at 15 day interval are usually enough.",
+      "hi": "मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर या प्रोपिकोनाज़ोल 25% EC 1 मिली प्रति लीटर छिड़कें। 15 दिन के अंतर पर दो छिड़काव आमतौर पर पर्याप्त हैं।",
+      "mr": "मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर किंवा प्रोपिकोनॅझोल २५% EC १ मिली प्रति लिटर फवारा. १५ दिवसांच्या अंतराने दोन फवारण्या पुरेशा असतात."
+    },
+    "prevention": {
+      "en": "Sow rust-tolerant hybrids and sow early so the crop matures before the humid rust season.",
+      "hi": "रतुआ-सहनशील संकर किस्में बोएँ और जल्दी बुवाई करें ताकि फसल नम मौसम से पहले पक जाए।",
+      "mr": "तांबेरा सहनशील संकरित वाण वापरा व लवकर पेरणी करा म्हणजे पीक दमट हंगामापूर्वी तयार होईल."
+    }
+  },
+
+  "Corn_(maize)___Northern_Leaf_Blight": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Exserohilum turcicum (fungus)",
+    "crop": { "en": "Maize", "hi": "मक्का", "mr": "मका" },
+    "disease": { "en": "Northern Leaf Blight", "hi": "उत्तरी पर्ण झुलसा", "mr": "उत्तरी पानांवरील करपा" },
+    "symptoms": {
+      "en": "Long cigar-shaped or boat-shaped grey-green lesions, 3 to 15 cm long, starting on the lower leaves and moving upward.",
+      "hi": "3 से 15 सेमी लंबे सिगार या नाव के आकार के धूसर-हरे घाव, जो निचली पत्तियों से शुरू होकर ऊपर बढ़ते हैं।",
+      "mr": "३ ते १५ सेंमी लांब सिगार किंवा नावेच्या आकाराचे करडे-हिरवे चट्टे, खालच्या पानांपासून सुरू होऊन वरच्या पानांकडे पसरतात."
+    },
+    "remedy": {
+      "en": "Spray Mancozeb 75% WP at 2.5 g per litre, or Propiconazole 25% EC at 1 ml per litre, at first symptom. Give 2 to 3 sprays at 10-12 day intervals.",
+      "hi": "पहला लक्षण दिखते ही मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर, या प्रोपिकोनाज़ोल 25% EC 1 मिली प्रति लीटर छिड़कें। 10-12 दिन के अंतर पर 2-3 छिड़काव करें।",
+      "mr": "पहिले लक्षण दिसताच मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर, किंवा प्रोपिकोनॅझोल २५% EC १ मिली प्रति लिटर फवारा. १०-१२ दिवसांच्या अंतराने २-३ फवारण्या करा."
+    },
+    "prevention": {
+      "en": "Use resistant hybrids, follow 2-year crop rotation, and remove or deep-plough infected stubble.",
+      "hi": "रोग-रोधी संकर किस्में लगाएँ, 2 वर्ष का फसल चक्र अपनाएँ, और रोगग्रस्त ठूँठ हटाएँ या गहरी जुताई करें।",
+      "mr": "रोगप्रतिकारक संकरित वाण वापरा, दोन वर्षांची फेरपालट करा आणि रोगट धसकटे काढा किंवा खोल नांगरणी करा."
+    }
+  },
+
+  "Corn_(maize)___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Maize", "hi": "मक्का", "mr": "मका" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no lesions, rust pustules or drying.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई घाव, रतुआ या सूखापन नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, चट्टे, तांबेरा किंवा वाळलेपणा नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Scout the lower leaves weekly from the knee-high stage, since most blights start there.",
+      "hi": "घुटने तक की अवस्था से निचली पत्तियों की साप्ताहिक जाँच करें, क्योंकि अधिकतर झुलसा वहीं से शुरू होता है।",
+      "mr": "गुडघाभर उंचीपासून खालच्या पानांची दर आठवड्याला पाहणी करा, कारण बहुतेक करपा तिथूनच सुरू होतो."
+    }
+  },
+
+  "Grape___Black_rot": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Guignardia bidwellii (fungus)",
+    "crop": { "en": "Grape", "hi": "अंगूर", "mr": "द्राक्ष" },
+    "disease": { "en": "Black Rot", "hi": "काला सड़न (ब्लैक रॉट)", "mr": "काळी कूज (ब्लॅक रॉट)" },
+    "symptoms": {
+      "en": "Round brown leaf spots with a dark border and tiny black dots inside. Berries shrivel into hard black mummies that hang on the bunch.",
+      "hi": "गहरे किनारे वाले गोल भूरे पत्ती धब्बे जिनके अंदर छोटे काले बिंदु होते हैं। दाने सिकुड़कर कठोर काली ममी बन जाते हैं जो गुच्छे पर लटके रहते हैं।",
+      "mr": "गडद कडेचे गोल तपकिरी ठिपके व आत बारीक काळे बिंदू दिसतात. मणी आकसून कठीण काळ्या ममीसारखे होतात व घडावर लटकत राहतात."
+    },
+    "remedy": {
+      "en": "Remove and burn all mummified berries. Spray Mancozeb 75% WP at 2 g per litre or Myclobutanil 10% WP at 1 g per litre from the 5-leaf stage, repeating every 10-14 days.",
+      "hi": "सभी सिकुड़े काले दाने हटाकर जला दें। 5-पत्ती अवस्था से मैंकोज़ेब 75% WP 2 ग्राम प्रति लीटर या माइक्लोब्यूटानिल 10% WP 1 ग्राम प्रति लीटर, हर 10-14 दिन पर छिड़कें।",
+      "mr": "सर्व वाळलेले काळे मणी काढून जाळा. ५ पानांच्या अवस्थेपासून मॅन्कोझेब ७५% WP २ ग्रॅम प्रति लिटर किंवा मायक्लोब्युटानिल १०% WP १ ग्रॅम प्रति लिटर, दर १०-१४ दिवसांनी फवारा."
+    },
+    "prevention": {
+      "en": "Keep the vine canopy open by summer pruning and tying, and clear fallen leaves and berries from under the vines.",
+      "hi": "गर्मी की छँटाई और बाँधकर बेल का छत्र खुला रखें, और बेल के नीचे गिरी पत्तियाँ व दाने साफ करें।",
+      "mr": "उन्हाळी छाटणी व बांधणी करून वेलीचा विस्तार मोकळा ठेवा, आणि वेलीखालील गळालेली पाने व मणी स्वच्छ करा."
+    }
+  },
+
+  "Grape___Esca_(Black_Measles)": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Phaeomoniella chlamydospora complex (fungus)",
+    "crop": { "en": "Grape", "hi": "अंगूर", "mr": "द्राक्ष" },
+    "disease": { "en": "Esca (Black Measles)", "hi": "एस्का (काली माता रोग)", "mr": "एस्का (ब्लॅक मीजल्स)" },
+    "symptoms": {
+      "en": "Tiger-stripe pattern on leaves with yellow or red bands between the veins and dried brown centres. Berries get small dark spots and the vine may collapse suddenly.",
+      "hi": "पत्तियों पर बाघ-धारी जैसा नमूना, शिराओं के बीच पीली या लाल पट्टियाँ और सूखे भूरे केंद्र। दानों पर छोटे गहरे धब्बे आते हैं और बेल अचानक सूख सकती है।",
+      "mr": "पानांवर वाघाच्या पट्ट्यांसारखा नमुना, शिरांमध्ये पिवळे किंवा लाल पट्टे व वाळलेला तपकिरी मध्यभाग दिसतो. मण्यांवर बारीक काळे ठिपके येतात व वेल अचानक वाळू शकते."
+    },
+    "remedy": {
+      "en": "There is no chemical cure once the wood is infected. Cut out infected arms well below the discoloured wood, burn the prunings, and seal all pruning cuts with Bordeaux paste or Copper oxychloride paste on the same day.",
+      "hi": "लकड़ी में संक्रमण के बाद कोई रासायनिक इलाज नहीं है। रंग बदली लकड़ी से काफी नीचे से संक्रमित शाखाएँ काटें, कटी लकड़ी जला दें, और उसी दिन सभी कटे भागों पर बोर्डो पेस्ट या कॉपर ऑक्सीक्लोराइड पेस्ट लगाएँ।",
+      "mr": "लाकडात प्रादुर्भाव झाल्यावर रासायनिक उपाय नाही. रंग बदललेल्या लाकडाच्या बऱ्याच खालून रोगट फांद्या कापा, छाटलेले लाकूड जाळा आणि त्याच दिवशी सर्व छाटलेल्या भागांना बोर्डो पेस्ट किंवा कॉपर ऑक्सिक्लोराईड पेस्ट लावा."
+    },
+    "prevention": {
+      "en": "Prune in dry weather only, disinfect secateurs between vines, and use healthy certified planting material.",
+      "hi": "केवल सूखे मौसम में छँटाई करें, हर बेल के बाद कैंची को कीटाणुरहित करें, और प्रमाणित स्वस्थ रोपण सामग्री लगाएँ।",
+      "mr": "फक्त कोरड्या हवामानात छाटणी करा, प्रत्येक वेलीनंतर कात्री निर्जंतुक करा आणि प्रमाणित निरोगी रोपे वापरा."
+    }
+  },
+
+  "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Pseudocercospora vitis (fungus)",
+    "crop": { "en": "Grape", "hi": "अंगूर", "mr": "द्राक्ष" },
+    "disease": { "en": "Isariopsis Leaf Spot", "hi": "इसैरिओप्सिस पर्ण धब्बा", "mr": "इसॅरिओप्सिस पान ठिपके" },
+    "symptoms": {
+      "en": "Irregular dark brown patches on the leaf, often with a sooty grey growth on the underside. Badly affected leaves dry and fall early.",
+      "hi": "पत्ती पर अनियमित गहरे भूरे धब्बे, निचली सतह पर अक्सर कालिख जैसी धूसर वृद्धि। अधिक प्रभावित पत्तियाँ सूखकर जल्दी गिर जाती हैं।",
+      "mr": "पानावर अनियमित गडद तपकिरी चट्टे, खालच्या बाजूस काजळीसारखी करडी वाढ दिसते. जास्त प्रादुर्भाव झालेली पाने वाळून लवकर गळतात."
+    },
+    "remedy": {
+      "en": "Spray Bordeaux mixture 1% or Mancozeb 75% WP at 2 g per litre. Repeat after 12-15 days if rain continues.",
+      "hi": "बोर्डो मिश्रण 1% या मैंकोज़ेब 75% WP 2 ग्राम प्रति लीटर छिड़कें। बारिश जारी रहने पर 12-15 दिन बाद दोहराएँ।",
+      "mr": "बोर्डो मिश्रण १% किंवा मॅन्कोझेब ७५% WP २ ग्रॅम प्रति लिटर फवारा. पाऊस सुरू राहिल्यास १२-१५ दिवसांनी पुन्हा फवारा."
+    },
+    "prevention": {
+      "en": "Collect and destroy fallen leaves, improve drainage, and avoid wetting the foliage while irrigating.",
+      "hi": "गिरी पत्तियाँ इकट्ठा करके नष्ट करें, जल निकासी सुधारें, और सिंचाई में पत्तियाँ भीगने न दें।",
+      "mr": "गळालेली पाने गोळा करून नष्ट करा, पाण्याचा निचरा सुधारा आणि पाणी देताना पाने भिजू देऊ नका."
+    }
+  },
+
+  "Grape___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Grape", "hi": "अंगूर", "mr": "द्राक्ष" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no spots or blight.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई धब्बा या झुलसा नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, ठिपके किंवा करपा नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Keep a preventive schedule during the monsoon, as grape diseases spread fastest in continuous wet weather.",
+      "hi": "मानसून में निवारक छिड़काव कार्यक्रम बनाए रखें, क्योंकि लगातार नमी में अंगूर के रोग तेजी से फैलते हैं।",
+      "mr": "पावसाळ्यात प्रतिबंधात्मक फवारणीचे वेळापत्रक पाळा, कारण सततच्या ओलाव्यात द्राक्षाचे रोग झपाट्याने वाढतात."
+    }
+  },
+
+  "Orange___Haunglongbing_(Citrus_greening)": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Candidatus Liberibacter asiaticus (bacterium, spread by citrus psyllid)",
+    "crop": { "en": "Orange", "hi": "संतरा", "mr": "संत्रे" },
+    "disease": { "en": "Huanglongbing (Citrus Greening)", "hi": "हरितमा रोग (सिट्रस ग्रीनिंग)", "mr": "ग्रीनिंग रोग (सिट्रस ग्रीनिंग)" },
+    "symptoms": {
+      "en": "Blotchy yellow mottling that is not the same on both sides of the midrib. Leaves become upright and leathery, fruit stays small, lopsided and bitter with aborted seeds.",
+      "hi": "धब्बेदार पीलापन जो मध्य शिरा के दोनों ओर एक जैसा नहीं होता। पत्तियाँ सीधी और चमड़े जैसी हो जाती हैं, फल छोटा, टेढ़ा और कड़वा रहता है तथा बीज सिकुड़े होते हैं।",
+      "mr": "मध्यशिरेच्या दोन्ही बाजूंना असमान पिवळसर चट्टे दिसतात. पाने ताठ व चिवट होतात, फळ लहान, वाकडे व कडू राहते आणि बिया सुकलेल्या असतात."
+    },
+    "remedy": {
+      "en": "There is no cure. Remove and destroy the infected tree so it does not infect the rest of the orchard. Control the citrus psyllid vector with Imidacloprid 17.8% SL at 0.3 ml per litre or Thiamethoxam 25% WG at 0.2 g per litre on new flush.",
+      "hi": "इसका कोई इलाज नहीं है। संक्रमित पेड़ हटाकर नष्ट करें ताकि बाकी बाग संक्रमित न हो। नई कोंपल पर इमिडाक्लोप्रिड 17.8% SL 0.3 मिली प्रति लीटर या थायामेथोक्सम 25% WG 0.2 ग्राम प्रति लीटर से सिल्ला कीट को नियंत्रित करें।",
+      "mr": "यावर इलाज नाही. रोगट झाड काढून नष्ट करा म्हणजे उर्वरित बागेत रोग पसरणार नाही. नवीन फुटीवर इमिडाक्लोप्रिड १७.८% SL ०.३ मिली प्रति लिटर किंवा थायामेथोक्झाम २५% WG ०.२ ग्रॅम प्रति लिटर फवारून सिट्रस सायला किडीचे नियंत्रण करा."
+    },
+    "prevention": {
+      "en": "Plant only certified disease-free saplings from a registered nursery, and inspect every new flush for psyllids.",
+      "hi": "केवल पंजीकृत नर्सरी से प्रमाणित रोगमुक्त पौधे लगाएँ, और हर नई कोंपल पर सिल्ला कीट की जाँच करें।",
+      "mr": "फक्त नोंदणीकृत रोपवाटिकेतील प्रमाणित रोगमुक्त रोपेच लावा, आणि प्रत्येक नवीन फुटीवर सायला किडीची पाहणी करा."
+    }
+  },
+
+  "Peach___Bacterial_spot": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Xanthomonas arboricola pv. pruni (bacterium)",
+    "crop": { "en": "Peach", "hi": "आड़ू", "mr": "पीच" },
+    "disease": { "en": "Bacterial Spot", "hi": "जीवाणु धब्बा (बैक्टीरियल स्पॉट)", "mr": "जिवाणूजन्य ठिपके (बॅक्टेरियल स्पॉट)" },
+    "symptoms": {
+      "en": "Small angular purple-brown spots on leaves whose centres drop out, giving a shot-hole look. Fruit gets sunken pitted spots and cracks.",
+      "hi": "पत्तियों पर छोटे कोणीय बैंगनी-भूरे धब्बे जिनके बीच का भाग गिर जाता है और छेद जैसा दिखता है। फल पर धँसे गड्ढेदार धब्बे और दरारें आती हैं।",
+      "mr": "पानांवर लहान कोनाकृती जांभळट-तपकिरी ठिपके पडतात व त्यांचा मध्यभाग गळून छिद्रे पडतात. फळांवर खोलगट खड्डेदार डाग व भेगा पडतात."
+    },
+    "remedy": {
+      "en": "Spray Copper oxychloride 50% WP at 3 g per litre mixed with Streptocycline at 1 g per 10 litres. Repeat twice at 10-day intervals. Avoid copper at full leaf stage as it can burn leaves.",
+      "hi": "कॉपर ऑक्सीक्लोराइड 50% WP 3 ग्राम प्रति लीटर में स्ट्रेप्टोसाइक्लिन 1 ग्राम प्रति 10 लीटर मिलाकर छिड़कें। 10 दिन के अंतर पर दो बार दोहराएँ। पूर्ण पत्ती अवस्था में कॉपर से बचें, पत्तियाँ जल सकती हैं।",
+      "mr": "कॉपर ऑक्सिक्लोराईड ५०% WP ३ ग्रॅम प्रति लिटर व त्यात स्ट्रेप्टोसायक्लिन १ ग्रॅम प्रति १० लिटर मिसळून फवारा. १० दिवसांच्या अंतराने दोनदा फवारा. पूर्ण पानांच्या अवस्थेत कॉपर टाळा, पाने जळू शकतात."
+    },
+    "prevention": {
+      "en": "Plant tolerant varieties, provide a windbreak since wind-driven rain spreads the bacteria, and avoid overhead irrigation.",
+      "hi": "सहनशील किस्में लगाएँ, हवा रोकने के लिए वायुरोधक लगाएँ क्योंकि हवा के साथ बारिश जीवाणु फैलाती है, और ऊपर से सिंचाई न करें।",
+      "mr": "सहनशील जाती लावा, वारा अडवण्यासाठी वारारोधक झाडे लावा कारण वाऱ्यासोबतचा पाऊस जिवाणू पसरवतो, आणि वरून पाणी देऊ नका."
+    }
+  },
+
+  "Peach___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Peach", "hi": "आड़ू", "mr": "पीच" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no spots or shot-holes.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई धब्बा या छेद नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, ठिपके किंवा छिद्रे नाहीत."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Apply a dormant copper spray in winter and keep the orchard floor free of fallen leaves.",
+      "hi": "सर्दियों में सुप्तावस्था में कॉपर का छिड़काव करें और बाग की ज़मीन से गिरी पत्तियाँ हटाते रहें।",
+      "mr": "हिवाळ्यात सुप्तावस्थेत कॉपरची फवारणी करा आणि बागेतील गळालेली पाने काढून टाका."
+    }
+  },
+
+  "Pepper,_bell___Bacterial_spot": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Xanthomonas campestris pv. vesicatoria (bacterium)",
+    "crop": { "en": "Bell Pepper", "hi": "शिमला मिर्च", "mr": "ढोबळी मिरची" },
+    "disease": { "en": "Bacterial Spot", "hi": "जीवाणु धब्बा (बैक्टीरियल स्पॉट)", "mr": "जिवाणूजन्य ठिपके (बॅक्टेरियल स्पॉट)" },
+    "symptoms": {
+      "en": "Small water-soaked spots on leaves that turn dark brown with a yellow halo. Spots are angular because they stop at the veins. Leaves drop and fruit gets raised scabby spots.",
+      "hi": "पत्तियों पर छोटे पानी भरे धब्बे जो गहरे भूरे हो जाते हैं और उनके चारों ओर पीला घेरा होता है। धब्बे शिराओं पर रुकने से कोणीय दिखते हैं। पत्तियाँ गिरती हैं और फल पर उभरे खुरदरे धब्बे आते हैं।",
+      "mr": "पानांवर लहान पाणथळ ठिपके पडून ते गडद तपकिरी होतात व भोवती पिवळे वलय दिसते. ठिपके शिरांपाशी थांबल्याने कोनाकृती दिसतात. पाने गळतात व फळांवर उंचवटलेले खरखरीत डाग येतात."
+    },
+    "remedy": {
+      "en": "Spray Copper oxychloride 50% WP at 3 g per litre plus Streptocycline at 1 g per 10 litres of water. Repeat 2 to 3 times at 8-10 day intervals. Remove badly infected plants.",
+      "hi": "कॉपर ऑक्सीक्लोराइड 50% WP 3 ग्राम प्रति लीटर और स्ट्रेप्टोसाइक्लिन 1 ग्राम प्रति 10 लीटर पानी में मिलाकर छिड़कें। 8-10 दिन के अंतर पर 2-3 बार दोहराएँ। बुरी तरह संक्रमित पौधे हटा दें।",
+      "mr": "कॉपर ऑक्सिक्लोराईड ५०% WP ३ ग्रॅम प्रति लिटर व स्ट्रेप्टोसायक्लिन १ ग्रॅम प्रति १० लिटर पाण्यात मिसळून फवारा. ८-१० दिवसांच्या अंतराने २-३ वेळा फवारा. जास्त प्रादुर्भाव झालेली झाडे काढून टाका."
+    },
+    "prevention": {
+      "en": "Use certified seed or treat seed with hot water at 52 C for 25 minutes, rotate away from chilli, tomato and brinjal for 2 years, and never work in the field when plants are wet.",
+      "hi": "प्रमाणित बीज लें या बीज को 52 डिग्री गर्म पानी में 25 मिनट उपचारित करें, 2 वर्ष तक मिर्च, टमाटर, बैंगन से फसल चक्र बदलें, और पौधे गीले होने पर खेत में काम न करें।",
+      "mr": "प्रमाणित बियाणे वापरा किंवा बियाण्यास ५२ अंश गरम पाण्यात २५ मिनिटे प्रक्रिया करा, दोन वर्षे मिरची, टोमॅटो, वांगी टाळून फेरपालट करा, आणि झाडे ओली असताना शेतात काम करू नका."
+    }
+  },
+
+  "Pepper,_bell___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Bell Pepper", "hi": "शिमला मिर्च", "mr": "ढोबळी मिरची" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no spots or curling.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई धब्बा या मुड़ाव नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, ठिपके किंवा मुडपलेपणा नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Install yellow sticky traps to catch sucking pests early and keep the field free of weeds that host viruses.",
+      "hi": "रस चूसने वाले कीटों को जल्दी पकड़ने के लिए पीले चिपचिपे ट्रैप लगाएँ और विषाणु फैलाने वाले खरपतवार हटाते रहें।",
+      "mr": "रसशोषक किडी लवकर पकडण्यासाठी पिवळे चिकट सापळे लावा आणि विषाणू वाढवणारे तण काढून टाका."
+    }
+  },
+
+  "Potato___Early_blight": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Alternaria solani (fungus)",
+    "crop": { "en": "Potato", "hi": "आलू", "mr": "बटाटा" },
+    "disease": { "en": "Early Blight", "hi": "अगेती झुलसा (अर्ली ब्लाइट)", "mr": "लवकर येणारा करपा (अर्ली ब्लाइट)" },
+    "symptoms": {
+      "en": "Dark brown spots with clear concentric rings, like a target board, starting on the older lower leaves. A yellow halo surrounds each spot.",
+      "hi": "निशाने जैसे स्पष्ट संकेंद्रित छल्लों वाले गहरे भूरे धब्बे, जो पहले पुरानी निचली पत्तियों पर आते हैं। हर धब्बे के चारों ओर पीला घेरा होता है।",
+      "mr": "लक्ष्यफलकासारखी स्पष्ट वर्तुळे असलेले गडद तपकिरी ठिपके प्रथम जुन्या खालच्या पानांवर दिसतात. प्रत्येक ठिपक्याभोवती पिवळे वलय असते."
+    },
+    "remedy": {
+      "en": "Spray Mancozeb 75% WP at 2.5 g per litre, or Chlorothalonil 75% WP at 2 g per litre. Repeat every 10 days, 3 to 4 sprays. For heavy attack use Azoxystrobin 23% SC at 1 ml per litre.",
+      "hi": "मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर, या क्लोरोथैलोनिल 75% WP 2 ग्राम प्रति लीटर छिड़कें। हर 10 दिन पर 3-4 छिड़काव करें। अधिक प्रकोप पर एज़ॉक्सीस्ट्रोबिन 23% SC 1 मिली प्रति लीटर लें।",
+      "mr": "मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर, किंवा क्लोरोथॅलोनिल ७५% WP २ ग्रॅम प्रति लिटर फवारा. दर १० दिवसांनी ३-४ फवारण्या करा. जास्त प्रादुर्भावास अॅझॉक्सिस्ट्रोबिन २३% SC १ मिली प्रति लिटर वापरा."
+    },
+    "prevention": {
+      "en": "Give adequate nitrogen and potash as weak plants are hit hardest, rotate crops, and destroy crop residue after harvest.",
+      "hi": "पर्याप्त नाइट्रोजन और पोटाश दें क्योंकि कमजोर पौधे ज्यादा प्रभावित होते हैं, फसल चक्र अपनाएँ, और कटाई के बाद अवशेष नष्ट करें।",
+      "mr": "पुरेसे नत्र व पालाश द्या कारण कमजोर झाडांवर जास्त प्रादुर्भाव होतो, फेरपालट करा आणि काढणीनंतर पिकाचे अवशेष नष्ट करा."
+    }
+  },
+
+  "Potato___Late_blight": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Phytophthora infestans (oomycete)",
+    "crop": { "en": "Potato", "hi": "आलू", "mr": "बटाटा" },
+    "disease": { "en": "Late Blight", "hi": "पछेती झुलसा (लेट ब्लाइट)", "mr": "उशिरा येणारा करपा (लेट ब्लाइट)" },
+    "symptoms": {
+      "en": "Large water-soaked greyish-green patches starting at the leaf tip or edge, turning brown-black. In humid mornings a white fuzzy growth is seen on the underside. The crop can collapse in 3 to 5 days.",
+      "hi": "पत्ती के सिरे या किनारे से शुरू होकर बड़े पानी भरे धूसर-हरे धब्बे, जो भूरे-काले हो जाते हैं। नम सुबह में निचली सतह पर सफेद रुईनुमा वृद्धि दिखती है। फसल 3-5 दिन में नष्ट हो सकती है।",
+      "mr": "पानाच्या टोकापासून किंवा कडेपासून मोठे पाणथळ करडसर-हिरवे चट्टे सुरू होऊन तपकिरी-काळे होतात. दमट सकाळी पानाच्या खालच्या बाजूस पांढरी बुरशी दिसते. पीक ३ ते ५ दिवसांत उद्ध्वस्त होऊ शकते."
+    },
+    "remedy": {
+      "en": "Act the same day. Spray Metalaxyl 8% + Mancozeb 64% WP at 2.5 g per litre, or Cymoxanil 8% + Mancozeb 64% WP at 3 g per litre. Repeat after 7 days, then switch to Mancozeb 2.5 g per litre as protection.",
+      "hi": "उसी दिन कार्रवाई करें। मेटालैक्सिल 8% + मैंकोज़ेब 64% WP 2.5 ग्राम प्रति लीटर, या साइमोक्सानिल 8% + मैंकोज़ेब 64% WP 3 ग्राम प्रति लीटर छिड़कें। 7 दिन बाद दोहराएँ, फिर सुरक्षा के लिए मैंकोज़ेब 2.5 ग्राम प्रति लीटर लें।",
+      "mr": "त्याच दिवशी उपाय करा. मेटालॅक्सिल ८% + मॅन्कोझेब ६४% WP २.५ ग्रॅम प्रति लिटर, किंवा सायमोक्सॅनिल ८% + मॅन्कोझेब ६४% WP ३ ग्रॅम प्रति लिटर फवारा. ७ दिवसांनी पुन्हा फवारा, नंतर संरक्षणासाठी मॅन्कोझेब २.५ ग्रॅम प्रति लिटर वापरा."
+    },
+    "prevention": {
+      "en": "Use certified disease-free seed tubers, earth up well so tubers are covered, avoid evening irrigation, and destroy infected haulm before harvest.",
+      "hi": "प्रमाणित रोगमुक्त बीज कंद लगाएँ, अच्छी मिट्टी चढ़ाएँ ताकि कंद ढके रहें, शाम को सिंचाई न करें, और कटाई से पहले रोगग्रस्त बेल नष्ट करें।",
+      "mr": "प्रमाणित रोगमुक्त बेणे वापरा, चांगली भर लावून बटाटे झाकले जातील असे पहा, संध्याकाळी पाणी देऊ नका आणि काढणीपूर्वी रोगट पाला नष्ट करा."
+    }
+  },
+
+  "Potato___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Potato", "hi": "आलू", "mr": "बटाटा" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no blight patches or spots.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई झुलसा या धब्बा नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, करपा किंवा ठिपके नाहीत."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Late blight can appear within days of cloudy humid weather. Check the crop every 2 to 3 days in such conditions and keep a protective Mancozeb spray ready.",
+      "hi": "बादल और नमी वाले मौसम में पछेती झुलसा कुछ ही दिनों में आ सकता है। ऐसे में हर 2-3 दिन पर फसल देखें और सुरक्षात्मक मैंकोज़ेब छिड़काव तैयार रखें।",
+      "mr": "ढगाळ व दमट हवामानात उशिरा करपा काही दिवसांतच येऊ शकतो. अशा वेळी दर २-३ दिवसांनी पीक तपासा व संरक्षक मॅन्कोझेब फवारणीची तयारी ठेवा."
+    }
+  },
+
+  "Raspberry___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Raspberry", "hi": "रसभरी", "mr": "रासबेरी" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no spots or discolouration.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई धब्बा या रंग बदलाव नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, ठिपके किंवा रंगबदल नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Cut out old fruited canes after harvest and keep rows narrow so air moves through the planting.",
+      "hi": "फल देने के बाद पुरानी शाखाएँ काट दें और कतारें पतली रखें ताकि हवा आर-पार जाए।",
+      "mr": "फळे घेतल्यानंतर जुन्या फांद्या कापून टाका व ओळी अरुंद ठेवा म्हणजे हवा खेळती राहील."
+    }
+  },
+
+  "Soybean___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Soybean", "hi": "सोयाबीन", "mr": "सोयाबीन" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no spots, rust or insect damage.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई धब्बा, रतुआ या कीट क्षति नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, ठिपके, तांबेरा किंवा किडीचा प्रादुर्भाव नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Watch for yellow mosaic and girdle beetle during the monsoon, and keep field bunds free of weeds.",
+      "hi": "मानसून में पीला मोज़ेक और गर्डल बीटल पर नज़र रखें, और मेड़ों को खरपतवार मुक्त रखें।",
+      "mr": "पावसाळ्यात पिवळा मोझॅक व खोडमाशी-गर्डल बीटलवर लक्ष ठेवा आणि बांध तणमुक्त ठेवा."
+    }
+  },
+
+  "Squash___Powdery_mildew": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Podosphaera xanthii (fungus)",
+    "crop": { "en": "Squash / Pumpkin", "hi": "कद्दू", "mr": "भोपळा" },
+    "disease": { "en": "Powdery Mildew", "hi": "चूर्णिल आसिता (पाउडरी मिल्ड्यू)", "mr": "भुरी रोग (पावडरी मिल्ड्यू)" },
+    "symptoms": {
+      "en": "White talcum-powder like patches on the upper leaf surface that spread until the whole leaf is coated, then the leaf yellows and dries. Fruits stay small and lack sweetness.",
+      "hi": "पत्ती की ऊपरी सतह पर टैल्कम पाउडर जैसे सफेद धब्बे जो फैलकर पूरी पत्ती ढक देते हैं, फिर पत्ती पीली होकर सूख जाती है। फल छोटे रहते हैं और मिठास कम होती है।",
+      "mr": "पानाच्या वरच्या बाजूस टाल्कम पावडरसारखे पांढरे चट्टे पसरून संपूर्ण पान झाकले जाते, नंतर पान पिवळे होऊन वाळते. फळे लहान राहतात व गोडी कमी होते."
+    },
+    "remedy": {
+      "en": "Spray Wettable Sulphur 80% WP at 2.5 g per litre, or Hexaconazole 5% EC at 1 ml per litre. Repeat after 12 days. An organic option is fresh cow milk diluted 1 part in 9 parts water sprayed in the morning.",
+      "hi": "घुलनशील गंधक 80% WP 2.5 ग्राम प्रति लीटर, या हेक्साकोनाज़ोल 5% EC 1 मिली प्रति लीटर छिड़कें। 12 दिन बाद दोहराएँ। जैविक विकल्प: ताज़ा गाय का दूध 1 भाग में 9 भाग पानी मिलाकर सुबह छिड़कें।",
+      "mr": "पाण्यात मिसळणारे गंधक ८०% WP २.५ ग्रॅम प्रति लिटर, किंवा हेक्साकोनॅझोल ५% EC १ मिली प्रति लिटर फवारा. १२ दिवसांनी पुन्हा फवारा. सेंद्रिय पर्याय: ताजे गाईचे दूध १ भाग व ९ भाग पाणी मिसळून सकाळी फवारा."
+    },
+    "prevention": {
+      "en": "Space the vines well, remove the lowest old leaves, and irrigate at the base rather than over the leaves.",
+      "hi": "बेलों में पर्याप्त दूरी रखें, सबसे नीचे की पुरानी पत्तियाँ हटाएँ, और पत्तियों पर नहीं बल्कि जड़ में सिंचाई करें।",
+      "mr": "वेलींमध्ये पुरेसे अंतर ठेवा, खालची जुनी पाने काढा आणि पानांवर न देता बुंध्याशी पाणी द्या."
+    }
+  },
+
+  "Strawberry___Leaf_scorch": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Diplocarpon earlianum (fungus)",
+    "crop": { "en": "Strawberry", "hi": "स्ट्रॉबेरी", "mr": "स्ट्रॉबेरी" },
+    "disease": { "en": "Leaf Scorch", "hi": "पर्ण झुलसा (लीफ स्कॉर्च)", "mr": "पान करपा (लीफ स्कॉर्च)" },
+    "symptoms": {
+      "en": "Many small dark purple spots that join together until the leaf looks scorched by fire. Unlike leaf spot, the centres do not turn white or grey.",
+      "hi": "बहुत सारे छोटे गहरे बैंगनी धब्बे जो मिलकर पत्ती को आग से झुलसा हुआ दिखाते हैं। पर्ण धब्बा रोग के विपरीत इनका केंद्र सफेद या धूसर नहीं होता।",
+      "mr": "अनेक लहान गडद जांभळे ठिपके एकत्र येऊन पान आगीने करपल्यासारखे दिसते. पान ठिपके रोगापेक्षा वेगळे म्हणजे यांचा मध्यभाग पांढरा किंवा करडा होत नाही."
+    },
+    "remedy": {
+      "en": "Remove and destroy badly affected old leaves. Spray Captan 50% WP at 2 g per litre or Mancozeb 75% WP at 2.5 g per litre at 10-day intervals.",
+      "hi": "बुरी तरह प्रभावित पुरानी पत्तियाँ हटाकर नष्ट करें। कैप्टान 50% WP 2 ग्राम प्रति लीटर या मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर, 10 दिन के अंतर पर छिड़कें।",
+      "mr": "जास्त प्रादुर्भाव झालेली जुनी पाने काढून नष्ट करा. कॅप्टान ५०% WP २ ग्रॅम प्रति लिटर किंवा मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर, १० दिवसांच्या अंतराने फवारा."
+    },
+    "prevention": {
+      "en": "Renovate the bed after harvest by mowing old leaves, use drip irrigation, and mulch with straw so soil does not splash onto leaves.",
+      "hi": "कटाई के बाद पुरानी पत्तियाँ काटकर क्यारी का नवीनीकरण करें, ड्रिप सिंचाई करें, और पुआल की पलवार करें ताकि मिट्टी पत्तियों पर न उछले।",
+      "mr": "काढणीनंतर जुनी पाने कापून वाफा नव्याने तयार करा, ठिबक सिंचन वापरा आणि गव्हाच्या काडाचे आच्छादन करा म्हणजे माती पानांवर उडणार नाही."
+    }
+  },
+
+  "Strawberry___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Strawberry", "hi": "स्ट्रॉबेरी", "mr": "स्ट्रॉबेरी" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour and no purple spots or scorching.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है और कोई बैंगनी धब्बा या झुलसा नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, जांभळे ठिपके किंवा करपा नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Keep straw mulch in place and remove runners you do not need so the bed stays open and dry.",
+      "hi": "पुआल की पलवार बनाए रखें और अनावश्यक धावक (रनर) हटाएँ ताकि क्यारी खुली और सूखी रहे।",
+      "mr": "काडाचे आच्छादन कायम ठेवा आणि नको असलेले धावते फुटवे काढा म्हणजे वाफा मोकळा व कोरडा राहील."
+    }
+  },
+
+  "Tomato___Bacterial_spot": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Xanthomonas campestris pv. vesicatoria (bacterium)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Bacterial Spot", "hi": "जीवाणु धब्बा (बैक्टीरियल स्पॉट)", "mr": "जिवाणूजन्य ठिपके (बॅक्टेरियल स्पॉट)" },
+    "symptoms": {
+      "en": "Small dark water-soaked spots with a yellow halo, often angular. Leaves turn yellow and fall from the bottom up. Fruit gets raised rough scabby spots.",
+      "hi": "पीले घेरे वाले छोटे गहरे पानी भरे धब्बे, अक्सर कोणीय। पत्तियाँ नीचे से ऊपर की ओर पीली होकर गिरती हैं। फल पर उभरे खुरदरे धब्बे आते हैं।",
+      "mr": "पिवळ्या वलयाचे लहान गडद पाणथळ ठिपके, बहुधा कोनाकृती दिसतात. पाने खालून वर पिवळी होऊन गळतात. फळांवर उंचवटलेले खरखरीत डाग येतात."
+    },
+    "remedy": {
+      "en": "Spray Copper oxychloride 50% WP at 3 g per litre with Streptocycline at 1 g per 10 litres of water. Give 2 to 3 sprays at 8-10 day intervals. Remove and burn severely infected plants.",
+      "hi": "कॉपर ऑक्सीक्लोराइड 50% WP 3 ग्राम प्रति लीटर के साथ स्ट्रेप्टोसाइक्लिन 1 ग्राम प्रति 10 लीटर पानी मिलाकर छिड़कें। 8-10 दिन के अंतर पर 2-3 छिड़काव करें। अधिक संक्रमित पौधे हटाकर जला दें।",
+      "mr": "कॉपर ऑक्सिक्लोराईड ५०% WP ३ ग्रॅम प्रति लिटर व स्ट्रेप्टोसायक्लिन १ ग्रॅम प्रति १० लिटर पाण्यात मिसळून फवारा. ८-१० दिवसांच्या अंतराने २-३ फवारण्या करा. जास्त प्रादुर्भाव झालेली झाडे काढून जाळा."
+    },
+    "prevention": {
+      "en": "Treat seed in hot water at 52 C for 25 minutes, rotate for 2 years, use drip irrigation, and do not handle plants when the foliage is wet.",
+      "hi": "बीज को 52 डिग्री गर्म पानी में 25 मिनट उपचारित करें, 2 वर्ष का फसल चक्र अपनाएँ, ड्रिप सिंचाई करें, और पत्तियाँ गीली होने पर पौधों को न छुएँ।",
+      "mr": "बियाण्यास ५२ अंश गरम पाण्यात २५ मिनिटे प्रक्रिया करा, दोन वर्षांची फेरपालट करा, ठिबक सिंचन वापरा आणि पाने ओली असताना झाडांना हात लावू नका."
+    }
+  },
+
+  "Tomato___Early_blight": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Alternaria solani (fungus)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Early Blight", "hi": "अगेती झुलसा (अर्ली ब्लाइट)", "mr": "लवकर येणारा करपा (अर्ली ब्लाइट)" },
+    "symptoms": {
+      "en": "Brown spots with concentric rings like a target, surrounded by a yellow halo. Starts on the oldest lower leaves and moves upward. Dark sunken collar rot can appear on the stem.",
+      "hi": "निशाने जैसे संकेंद्रित छल्लों वाले भूरे धब्बे, चारों ओर पीला घेरा। सबसे पुरानी निचली पत्तियों से शुरू होकर ऊपर बढ़ता है। तने पर गहरा धँसा कॉलर सड़न भी हो सकता है।",
+      "mr": "लक्ष्यफलकासारखी वर्तुळे असलेले तपकिरी ठिपके व भोवती पिवळे वलय दिसते. सर्वात जुन्या खालच्या पानांपासून सुरू होऊन वर पसरते. खोडावर गडद खोलगट कॉलर कूज दिसू शकते."
+    },
+    "remedy": {
+      "en": "Remove the lowest infected leaves. Spray Mancozeb 75% WP at 2.5 g per litre or Chlorothalonil 75% WP at 2 g per litre every 10 days. For severe attack use Azoxystrobin 23% SC at 1 ml per litre.",
+      "hi": "सबसे नीचे की संक्रमित पत्तियाँ हटाएँ। मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर या क्लोरोथैलोनिल 75% WP 2 ग्राम प्रति लीटर हर 10 दिन पर छिड़कें। गंभीर प्रकोप पर एज़ॉक्सीस्ट्रोबिन 23% SC 1 मिली प्रति लीटर लें।",
+      "mr": "खालची रोगट पाने काढून टाका. मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर किंवा क्लोरोथॅलोनिल ७५% WP २ ग्रॅम प्रति लिटर दर १० दिवसांनी फवारा. तीव्र प्रादुर्भावास अॅझॉक्सिस्ट्रोबिन २३% SC १ मिली प्रति लिटर वापरा."
+    },
+    "prevention": {
+      "en": "Stake plants so leaves stay off the soil, mulch the bed, avoid overhead irrigation, and give balanced nitrogen.",
+      "hi": "पौधों को सहारा दें ताकि पत्तियाँ मिट्टी से न लगें, क्यारी पर पलवार करें, ऊपर से सिंचाई न करें, और संतुलित नाइट्रोजन दें।",
+      "mr": "झाडांना आधार द्या म्हणजे पाने जमिनीला लागणार नाहीत, वाफ्यावर आच्छादन करा, वरून पाणी देऊ नका आणि संतुलित नत्र द्या."
+    }
+  },
+
+  "Tomato___Late_blight": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Phytophthora infestans (oomycete)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Late Blight", "hi": "पछेती झुलसा (लेट ब्लाइट)", "mr": "उशिरा येणारा करपा (लेट ब्लाइट)" },
+    "symptoms": {
+      "en": "Large irregular greasy grey-green patches on leaves and stems that quickly turn brown-black. White fungal growth appears on the underside in humid weather. Fruit develops hard brown greasy patches.",
+      "hi": "पत्तियों और तने पर बड़े अनियमित चिकने धूसर-हरे धब्बे जो जल्दी भूरे-काले हो जाते हैं। नम मौसम में निचली सतह पर सफेद कवक वृद्धि दिखती है। फल पर कठोर भूरे चिकने धब्बे आते हैं।",
+      "mr": "पानांवर व खोडावर मोठे अनियमित तेलकट करडे-हिरवे चट्टे पडून ते लवकर तपकिरी-काळे होतात. दमट हवामानात पानाच्या खालच्या बाजूस पांढरी बुरशी दिसते. फळांवर कठीण तपकिरी तेलकट डाग पडतात."
+    },
+    "remedy": {
+      "en": "This spreads very fast in cool humid weather. Spray Cymoxanil 8% + Mancozeb 64% WP at 3 g per litre, or Metalaxyl 8% + Mancozeb 64% WP at 2.5 g per litre, on the same day symptoms appear. Repeat after 7 days.",
+      "hi": "ठंडे नम मौसम में यह बहुत तेजी से फैलता है। लक्षण दिखने वाले दिन ही साइमोक्सानिल 8% + मैंकोज़ेब 64% WP 3 ग्राम प्रति लीटर, या मेटालैक्सिल 8% + मैंकोज़ेब 64% WP 2.5 ग्राम प्रति लीटर छिड़कें। 7 दिन बाद दोहराएँ।",
+      "mr": "थंड व दमट हवामानात हा रोग अतिशय झपाट्याने पसरतो. लक्षणे दिसताच त्याच दिवशी सायमोक्सॅनिल ८% + मॅन्कोझेब ६४% WP ३ ग्रॅम प्रति लिटर, किंवा मेटालॅक्सिल ८% + मॅन्कोझेब ६४% WP २.५ ग्रॅम प्रति लिटर फवारा. ७ दिवसांनी पुन्हा फवारा."
+    },
+    "prevention": {
+      "en": "Do not plant tomato next to potato, give wide spacing, irrigate in the morning only, and remove infected plants immediately with their fruit.",
+      "hi": "टमाटर को आलू के पास न लगाएँ, अधिक दूरी रखें, केवल सुबह सिंचाई करें, और संक्रमित पौधे फलों सहित तुरंत हटा दें।",
+      "mr": "टोमॅटो बटाट्याशेजारी लावू नका, जास्त अंतर ठेवा, फक्त सकाळी पाणी द्या आणि रोगट झाडे फळांसह लगेच काढून टाका."
+    }
+  },
+
+  "Tomato___Leaf_Mold": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Passalora fulva (fungus)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Leaf Mold", "hi": "पत्ती फफूंद (लीफ मोल्ड)", "mr": "पानावरील बुरशी (लीफ मोल्ड)" },
+    "symptoms": {
+      "en": "Pale yellow patches with no clear border on the upper leaf surface, and an olive-green to brown velvety mould directly below them on the underside. Common in polyhouses and humid shaded plots.",
+      "hi": "पत्ती की ऊपरी सतह पर बिना स्पष्ट किनारे के हल्के पीले धब्बे, और ठीक उनके नीचे निचली सतह पर जैतूनी-हरी से भूरी मखमली फफूंद। पॉलीहाउस और नम छायादार खेतों में आम है।",
+      "mr": "पानाच्या वरच्या बाजूस अस्पष्ट कडेचे फिकट पिवळे चट्टे व त्यांच्या बरोबर खाली पानाच्या खालच्या बाजूस जैतुनी-हिरवी ते तपकिरी मखमली बुरशी दिसते. पॉलिहाउस व दमट सावलीच्या शेतात सामान्य आहे."
+    },
+    "remedy": {
+      "en": "Increase ventilation first, since this disease needs above 85 percent humidity. Spray Chlorothalonil 75% WP at 2 g per litre or Difenoconazole 25% EC at 0.5 ml per litre. Remove the lower affected leaves.",
+      "hi": "पहले हवा का आवागमन बढ़ाएँ, क्योंकि यह रोग 85 प्रतिशत से अधिक नमी में ही होता है। क्लोरोथैलोनिल 75% WP 2 ग्राम प्रति लीटर या डाइफेनोकोनाज़ोल 25% EC 0.5 मिली प्रति लीटर छिड़कें। नीचे की प्रभावित पत्तियाँ हटाएँ।",
+      "mr": "प्रथम हवा खेळती करा, कारण हा रोग ८५ टक्क्यांहून अधिक आर्द्रतेतच वाढतो. क्लोरोथॅलोनिल ७५% WP २ ग्रॅम प्रति लिटर किंवा डायफेनोकोनॅझोल २५% EC ०.५ मिली प्रति लिटर फवारा. खालची प्रादुर्भावग्रस्त पाने काढा."
+    },
+    "prevention": {
+      "en": "In a polyhouse open side vents in the morning, avoid crowding plants, prune the lower leaves, and use resistant varieties.",
+      "hi": "पॉलीहाउस में सुबह साइड वेंट खोलें, पौधों की भीड़ न करें, नीचे की पत्तियाँ छाँटें, और रोग-रोधी किस्में लगाएँ।",
+      "mr": "पॉलिहाउसमध्ये सकाळी बाजूचे व्हेंट उघडा, झाडांची दाटी टाळा, खालची पाने छाटा आणि रोगप्रतिकारक जाती वापरा."
+    }
+  },
+
+  "Tomato___Septoria_leaf_spot": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Septoria lycopersici (fungus)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Septoria Leaf Spot", "hi": "सेप्टोरिया पर्ण धब्बा", "mr": "सेप्टोरिया पान ठिपके" },
+    "symptoms": {
+      "en": "Many small round spots with grey-white centres and dark brown borders. Tiny black dots are visible in the centre with a hand lens. Lower leaves yellow and drop, exposing fruit to sunscald.",
+      "hi": "धूसर-सफेद केंद्र और गहरे भूरे किनारे वाले बहुत से छोटे गोल धब्बे। लेंस से केंद्र में छोटे काले बिंदु दिखते हैं। निचली पत्तियाँ पीली होकर गिरती हैं और फल धूप से झुलसते हैं।",
+      "mr": "करड्या-पांढऱ्या मध्यभागाचे व गडद तपकिरी कडेचे अनेक लहान गोल ठिपके दिसतात. भिंगातून मध्यभागी बारीक काळे बिंदू दिसतात. खालची पाने पिवळी होऊन गळतात व फळे उन्हाने करपतात."
+    },
+    "remedy": {
+      "en": "Remove and destroy the infected lower leaves first. Spray Mancozeb 75% WP at 2.5 g per litre or Chlorothalonil 75% WP at 2 g per litre every 10 days, 3 sprays.",
+      "hi": "पहले संक्रमित निचली पत्तियाँ हटाकर नष्ट करें। मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर या क्लोरोथैलोनिल 75% WP 2 ग्राम प्रति लीटर, हर 10 दिन पर 3 छिड़काव करें।",
+      "mr": "प्रथम रोगट खालची पाने काढून नष्ट करा. मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर किंवा क्लोरोथॅलोनिल ७५% WP २ ग्रॅम प्रति लिटर, दर १० दिवसांनी ३ फवारण्या करा."
+    },
+    "prevention": {
+      "en": "Mulch the soil surface, stake the plants, and clear tomato and solanaceous weed residue after harvest as the fungus survives in it.",
+      "hi": "मिट्टी पर पलवार करें, पौधों को सहारा दें, और कटाई के बाद टमाटर व सोलेनेसी खरपतवार के अवशेष हटाएँ क्योंकि कवक उसी में जीवित रहता है।",
+      "mr": "जमिनीवर आच्छादन करा, झाडांना आधार द्या आणि काढणीनंतर टोमॅटो व सोलनेसी तणांचे अवशेष काढून टाका कारण बुरशी त्यातच जगते."
+    }
+  },
+
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Tetranychus urticae (mite pest, not a disease)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Two-spotted Spider Mite", "hi": "दो-धब्बा मकड़ी माइट (लाल मकड़ी)", "mr": "लाल कोळी (दोन ठिपक्यांची कोळी कीड)" },
+    "symptoms": {
+      "en": "Fine pale speckling or stippling on the leaf, which later turns bronze and dries. Fine webbing is seen on the underside and shoot tips. Worst in hot dry weather.",
+      "hi": "पत्ती पर बारीक हल्के चित्तीदार दाग, जो बाद में कांसे जैसे होकर सूख जाते हैं। निचली सतह और कोंपलों पर महीन जाला दिखता है। गर्म सूखे मौसम में सबसे अधिक।",
+      "mr": "पानावर बारीक फिकट ठिपक्यांचे जाळे दिसते, नंतर पान कांस्यरंगी होऊन वाळते. पानाच्या खालच्या बाजूस व शेंड्यावर बारीक जाळी दिसते. उष्ण व कोरड्या हवामानात प्रादुर्भाव जास्त."
+    },
+    "remedy": {
+      "en": "This is a mite, not a fungus, so fungicide will not work. Spray Spiromesifen 22.9% SC at 1 ml per litre or Propargite 57% EC at 2 ml per litre, directing the spray to the leaf underside. Organic option: neem oil 1500 ppm at 5 ml per litre plus a little soap solution, twice at 7-day gaps.",
+      "hi": "यह माइट है, कवक नहीं, इसलिए फफूंदनाशक काम नहीं करेगा। स्पाइरोमेसीफेन 22.9% SC 1 मिली प्रति लीटर या प्रोपरजाइट 57% EC 2 मिली प्रति लीटर, पत्ती की निचली सतह पर छिड़कें। जैविक विकल्प: नीम तेल 1500 ppm 5 मिली प्रति लीटर में थोड़ा साबुन घोल मिलाकर, 7 दिन के अंतर पर दो बार।",
+      "mr": "ही कोळी कीड आहे, बुरशी नाही, त्यामुळे बुरशीनाशक चालणार नाही. स्पायरोमेसिफेन २२.९% SC १ मिली प्रति लिटर किंवा प्रोपरगाईट ५७% EC २ मिली प्रति लिटर, पानाच्या खालच्या बाजूस फवारा. सेंद्रिय पर्याय: निंबोळी तेल १५०० ppm ५ मिली प्रति लिटर व थोडे साबणाचे द्रावण, ७ दिवसांच्या अंतराने दोनदा."
+    },
+    "prevention": {
+      "en": "Do not let the crop suffer water stress, avoid dusty field borders, and do not spray broad-spectrum insecticides that kill predatory mites.",
+      "hi": "फसल को पानी की कमी न होने दें, खेत की धूल भरी मेड़ों से बचें, और व्यापक कीटनाशक न छिड़कें जो शिकारी माइट को मार देते हैं।",
+      "mr": "पिकाला पाण्याचा ताण पडू देऊ नका, शेताच्या धुळीच्या कडा टाळा आणि परभक्षी कोळी मारणारी व्यापक कीटकनाशके फवारू नका."
+    }
+  },
+
+  "Tomato___Target_Spot": {
+    "healthy": false,
+    "severity": "medium",
+    "pathogen": "Corynespora cassiicola (fungus)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Target Spot", "hi": "लक्ष्य धब्बा (टारगेट स्पॉट)", "mr": "लक्ष्य ठिपके (टार्गेट स्पॉट)" },
+    "symptoms": {
+      "en": "Small brown spots that enlarge into light brown lesions with faint rings and a yellow margin. Unlike early blight the centre often cracks and falls out. Fruit gets small sunken brown pits.",
+      "hi": "छोटे भूरे धब्बे जो बढ़कर हल्के भूरे घाव बनते हैं, जिनमें हल्के छल्ले और पीला किनारा होता है। अगेती झुलसा के विपरीत केंद्र अक्सर फटकर गिर जाता है। फल पर छोटे धँसे भूरे गड्ढे आते हैं।",
+      "mr": "लहान तपकिरी ठिपके वाढून फिकट तपकिरी चट्टे बनतात, त्यात अस्पष्ट वर्तुळे व पिवळी कडा असते. लवकर करप्यापेक्षा वेगळे म्हणजे मध्यभाग तडकून गळतो. फळांवर लहान खोलगट तपकिरी खड्डे पडतात."
+    },
+    "remedy": {
+      "en": "Spray Mancozeb 75% WP at 2.5 g per litre or Chlorothalonil 75% WP at 2 g per litre. For heavy pressure use Azoxystrobin 23% SC at 1 ml per litre. Repeat after 10-12 days.",
+      "hi": "मैंकोज़ेब 75% WP 2.5 ग्राम प्रति लीटर या क्लोरोथैलोनिल 75% WP 2 ग्राम प्रति लीटर छिड़कें। अधिक प्रकोप पर एज़ॉक्सीस्ट्रोबिन 23% SC 1 मिली प्रति लीटर लें। 10-12 दिन बाद दोहराएँ।",
+      "mr": "मॅन्कोझेब ७५% WP २.५ ग्रॅम प्रति लिटर किंवा क्लोरोथॅलोनिल ७५% WP २ ग्रॅम प्रति लिटर फवारा. जास्त प्रादुर्भावास अॅझॉक्सिस्ट्रोबिन २३% SC १ मिली प्रति लिटर वापरा. १०-१२ दिवसांनी पुन्हा फवारा."
+    },
+    "prevention": {
+      "en": "Remove crop debris after harvest, give wider spacing for air movement, and do not let irrigation water splash the lower leaves.",
+      "hi": "कटाई के बाद फसल अवशेष हटाएँ, हवा के लिए अधिक दूरी रखें, और सिंचाई का पानी निचली पत्तियों पर न छलकने दें।",
+      "mr": "काढणीनंतर पिकाचे अवशेष काढून टाका, हवेसाठी जास्त अंतर ठेवा आणि पाण्याचे शिंतोडे खालच्या पानांवर उडू देऊ नका."
+    }
+  },
+
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Tomato Yellow Leaf Curl Virus (spread by whitefly Bemisia tabaci)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Tomato Yellow Leaf Curl Virus", "hi": "टमाटर पीला पत्ती मरोड़ विषाणु", "mr": "टोमॅटो पिवळा पान चुरडा विषाणू" },
+    "symptoms": {
+      "en": "Leaves curl upward and inward, become small, thick and leathery with yellow margins. The plant is stunted and bushy, flowers drop and very few fruits set. Whiteflies are seen under the leaves.",
+      "hi": "पत्तियाँ ऊपर और अंदर की ओर मुड़ जाती हैं, छोटी, मोटी और चमड़े जैसी हो जाती हैं, किनारे पीले हो जाते हैं। पौधा बौना और झाड़ीनुमा हो जाता है, फूल झड़ते हैं और बहुत कम फल लगते हैं। पत्तियों के नीचे सफेद मक्खी दिखती है।",
+      "mr": "पाने वर व आतल्या बाजूस चुरडतात, लहान, जाड व चिवट होतात आणि कडा पिवळ्या पडतात. झाड खुरटे व झुडुपासारखे होते, फुले गळतात व फळधारणा फार कमी होते. पानांखाली पांढरी माशी दिसते."
+    },
+    "remedy": {
+      "en": "There is no cure for the virus. Uproot and destroy infected plants away from the field. Control the whitefly vector with Imidacloprid 17.8% SL at 0.3 ml per litre or Diafenthiuron 50% WP at 1 g per litre, and install 10 to 12 yellow sticky traps per acre.",
+      "hi": "विषाणु का कोई इलाज नहीं है। संक्रमित पौधे उखाड़कर खेत से दूर नष्ट करें। सफेद मक्खी को इमिडाक्लोप्रिड 17.8% SL 0.3 मिली प्रति लीटर या डायफेनथ्यूरॉन 50% WP 1 ग्राम प्रति लीटर से नियंत्रित करें, और प्रति एकड़ 10-12 पीले चिपचिपे ट्रैप लगाएँ।",
+      "mr": "विषाणूवर इलाज नाही. रोगट झाडे मुळासकट उपटून शेतापासून दूर नष्ट करा. पांढऱ्या माशीसाठी इमिडाक्लोप्रिड १७.८% SL ०.३ मिली प्रति लिटर किंवा डायफेनथ्युरॉन ५०% WP १ ग्रॅम प्रति लिटर फवारा, आणि एकरी १० ते १२ पिवळे चिकट सापळे लावा."
+    },
+    "prevention": {
+      "en": "Raise seedlings under a 40-mesh insect-proof net, plant tolerant hybrids, use a barrier crop of maize or bajra around the plot, and remove parthenium and other weed hosts.",
+      "hi": "पौध 40-मेश कीटरोधी जाली के नीचे तैयार करें, सहनशील संकर किस्में लगाएँ, खेत के चारों ओर मक्का या बाजरा की अवरोधक फसल लगाएँ, और गाजरघास व अन्य खरपतवार हटाएँ।",
+      "mr": "रोपे ४० मेश कीटकरोधक जाळीखाली तयार करा, सहनशील संकरित वाण लावा, शेताभोवती मका किंवा बाजरीचे सापळा पीक लावा आणि गाजरगवत व इतर तण काढून टाका."
+    }
+  },
+
+  "Tomato___Tomato_mosaic_virus": {
+    "healthy": false,
+    "severity": "high",
+    "pathogen": "Tomato Mosaic Virus (ToMV, spread by touch, tools and seed)",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Tomato Mosaic Virus", "hi": "टमाटर मोज़ेक विषाणु", "mr": "टोमॅटो मोझॅक विषाणू" },
+    "symptoms": {
+      "en": "Light and dark green mottled mosaic pattern on the leaves. Leaves become narrow, fern-like and puckered. Plants are stunted and fruit may show brown internal marks.",
+      "hi": "पत्तियों पर हल्के और गहरे हरे रंग का चितकबरा मोज़ेक नमूना। पत्तियाँ पतली, फर्न जैसी और सिकुड़ी हो जाती हैं। पौधे बौने रहते हैं और फल के अंदर भूरे निशान आ सकते हैं।",
+      "mr": "पानांवर फिकट व गडद हिरव्या रंगाचा मोझॅक नमुना दिसतो. पाने अरुंद, नेचासारखी व सुरकुतलेली होतात. झाडे खुरटी राहतात व फळांच्या आत तपकिरी डाग दिसू शकतात."
+    },
+    "remedy": {
+      "en": "There is no chemical cure. Uproot and burn infected plants. Wash hands with soap and dip tools in 1 percent sodium hypochlorite or skimmed milk solution between plants. Do not use tobacco or handle bidi while working, as the virus spreads from tobacco.",
+      "hi": "कोई रासायनिक इलाज नहीं है। संक्रमित पौधे उखाड़कर जला दें। हाथ साबुन से धोएँ और औज़ारों को 1 प्रतिशत सोडियम हाइपोक्लोराइट या मलाई रहित दूध में डुबोएँ। काम करते समय तंबाकू या बीड़ी का प्रयोग न करें, क्योंकि विषाणु तंबाकू से फैलता है।",
+      "mr": "यावर रासायनिक इलाज नाही. रोगट झाडे उपटून जाळा. हात साबणाने धुवा आणि अवजारे १ टक्का सोडियम हायपोक्लोराईट किंवा साय काढलेल्या दुधात बुडवा. काम करताना तंबाखू किंवा बिडी वापरू नका, कारण विषाणू तंबाखूतून पसरतो."
+    },
+    "prevention": {
+      "en": "Use certified virus-free seed or treat seed with 10 percent trisodium phosphate for 15 minutes, grow resistant varieties carrying the Tm-2a gene, and rotate away from tomato and tobacco.",
+      "hi": "प्रमाणित विषाणु-मुक्त बीज लें या बीज को 10 प्रतिशत ट्राइसोडियम फॉस्फेट में 15 मिनट उपचारित करें, Tm-2a जीन वाली रोग-रोधी किस्में लगाएँ, और टमाटर व तंबाकू से फसल चक्र बदलें।",
+      "mr": "प्रमाणित विषाणूमुक्त बियाणे वापरा किंवा बियाण्यास १० टक्के ट्रायसोडियम फॉस्फेटमध्ये १५ मिनिटे प्रक्रिया करा, Tm-2a जनुक असलेल्या प्रतिकारक जाती लावा आणि टोमॅटो व तंबाखू टाळून फेरपालट करा."
+    }
+  },
+
+  "Tomato___healthy": {
+    "healthy": true,
+    "severity": "none",
+    "pathogen": "None",
+    "crop": { "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    "disease": { "en": "Healthy", "hi": "स्वस्थ", "mr": "निरोगी" },
+    "symptoms": {
+      "en": "The leaf looks healthy with uniform green colour, no spots, curling, mottling or mite webbing.",
+      "hi": "पत्ती स्वस्थ है, रंग एक समान हरा है, कोई धब्बा, मुड़ाव, चितकबरापन या माइट का जाला नहीं है।",
+      "mr": "पान निरोगी असून रंग एकसारखा हिरवा आहे, ठिपके, चुरडा, मोझॅक किंवा कोळीची जाळी नाही."
+    },
+    "remedy": {
+      "en": "No treatment needed. Continue your regular care schedule.",
+      "hi": "किसी उपचार की आवश्यकता नहीं। नियमित देखभाल जारी रखें।",
+      "mr": "कोणत्याही उपचाराची गरज नाही. नेहमीची काळजी सुरू ठेवा."
+    },
+    "prevention": {
+      "en": "Keep yellow sticky traps for whitefly, stake the plants, and inspect the lower leaves twice a week since most tomato diseases start there.",
+      "hi": "सफेद मक्खी के लिए पीले चिपचिपे ट्रैप लगाएँ, पौधों को सहारा दें, और सप्ताह में दो बार निचली पत्तियाँ जाँचें क्योंकि अधिकतर रोग वहीं से शुरू होते हैं।",
+      "mr": "पांढऱ्या माशीसाठी पिवळे चिकट सापळे लावा, झाडांना आधार द्या आणि आठवड्यातून दोनदा खालची पाने तपासा कारण बहुतेक रोग तिथूनच सुरू होतात."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# Backend / inference (CPU-only — training happens on Colab)
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+pillow==11.1.0
+numpy==2.2.1
+
+# PyTorch CPU wheels (default PyPI wheels on Windows are already CPU-only)
+torch==2.6.0
+torchvision==0.21.0
+
+# Server-side Marathi/Hindi text-to-speech (fallback when the browser
+# has no mr-IN / hi-IN voice installed)
+gTTS==2.5.4

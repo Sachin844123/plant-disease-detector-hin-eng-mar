@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1b5e20" />
+  <meta name="description" content="Leaf disease detection with remedies in Marathi and Hindi" />
+  <title>पीक रोग ओळख | Plant Disease Detector</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/app/icons/icon-192.png" />
+  <link rel="stylesheet" href="/app/styles.css" />
+</head>
+<body>
+  <header class="app-bar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🌿</span>
+      <div>
+        <h1 data-i18n="title">पीक रोग ओळख</h1>
+        <p class="tagline" data-i18n="tagline">पानाचा फोटो काढा, रोग व उपाय मिळवा</p>
+      </div>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn is-active" data-lang="mr">मराठी</button>
+      <button class="lang-btn" data-lang="hi">हिंदी</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Offline / model status banner -->
+    <div id="banner" class="banner" hidden></div>
+
+    <section class="capture-card">
+      <label for="fileInput" class="capture-btn primary">
+        <span class="icon" aria-hidden="true">📷</span>
+        <span data-i18n="takePhoto">फोटो काढा</span>
+      </label>
+      <input id="fileInput" type="file" accept="image/*" capture="environment" hidden />
+
+      <label for="galleryInput" class="capture-btn secondary">
+        <span class="icon" aria-hidden="true">🖼️</span>
+        <span data-i18n="choosePhoto">गॅलरीतून निवडा</span>
+      </label>
+      <input id="galleryInput" type="file" accept="image/*" hidden />
+
+      <p class="hint" data-i18n="hint">एका पानाचा स्पष्ट फोटो घ्या. पान पूर्ण चौकटीत असावे.</p>
+    </section>
+
+    <section id="previewSection" class="preview-card" hidden>
+      <img id="preview" alt="" />
+      <button id="diagnoseBtn" class="capture-btn primary full">
+        <span class="icon" aria-hidden="true">🔍</span>
+        <span data-i18n="diagnose">रोग तपासा</span>
+      </button>
+    </section>
+
+    <section id="loading" class="loading" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p data-i18n="analysing">विश्लेषण सुरू आहे...</p>
+    </section>
+
+    <section id="error" class="error-card" hidden>
+      <p id="errorText"></p>
+    </section>
+
+    <!-- Result -->
+    <section id="result" class="result" hidden>
+      <div id="resultCard" class="result-card">
+        <div class="result-head">
+          <div>
+            <p class="crop-label" id="cropName"></p>
+            <h2 id="diseaseName"></h2>
+          </div>
+          <span id="severityChip" class="chip"></span>
+        </div>
+
+        <div class="confidence">
+          <div class="confidence-bar"><div id="confidenceFill"></div></div>
+          <span id="confidenceText"></span>
+        </div>
+
+        <p id="lowConfNote" class="low-conf" hidden></p>
+
+        <button id="speakBtn" class="speak-btn">
+          <span class="icon" aria-hidden="true">🔊</span>
+          <span id="speakLabel" data-i18n="listen">ऐका</span>
+        </button>
+
+        <div class="info-block">
+          <h3 data-i18n="symptoms">लक्षणे</h3>
+          <p id="symptoms"></p>
+        </div>
+
+        <div class="info-block remedy">
+          <h3 data-i18n="remedy">उपाय</h3>
+          <p id="remedy"></p>
+        </div>
+
+        <div class="info-block">
+          <h3 data-i18n="prevention">प्रतिबंध</h3>
+          <p id="prevention"></p>
+        </div>
+
+        <details id="altBox" class="alt-box">
+          <summary data-i18n="otherPossible">इतर शक्यता</summary>
+          <ul id="altList"></ul>
+        </details>
+
+        <p id="pathogen" class="pathogen"></p>
+        <p id="disclaimer" class="disclaimer"></p>
+      </div>
+
+      <button id="againBtn" class="capture-btn secondary full">
+        <span class="icon" aria-hidden="true">↺</span>
+        <span data-i18n="again">दुसरा फोटो तपासा</span>
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <p id="modelInfo" class="model-info"></p>
+  </footer>
+
+  <audio id="ttsAudio" hidden></audio>
+  <script src="/app/app.js"></script>
+</body>
+</html>
