@@ -10,6 +10,7 @@ the same Wi-Fi, so the server has to be reachable from the LAN, not just localho
 from __future__ import annotations
 
 import hashlib
+import os
 import socket
 from pathlib import Path
 
@@ -61,6 +62,12 @@ def warm_model() -> None:
     except ModelNotTrainedError as exc:
         print(f"[warn] {exc}")
 
+    # Printed to the console only — never returned by the API, since the tunnel
+    # would otherwise publish this machine's private address to the internet.
+    lan = _lan_url()
+    if lan:
+        print(f"[ok] open on a phone on the same Wi-Fi: {lan}")
+
 
 # ------------------------------------------------------------------ meta APIs
 @app.get("/api/health")
@@ -73,7 +80,6 @@ def health() -> dict:
         "metrics": predictor.metrics,
         "languages": list(SUPPORTED_LANGUAGES),
         "confidence_threshold": CONFIDENCE_THRESHOLD,
-        "lan_url": f"http://{_lan_ip()}:8000",
     }
 
 
@@ -173,11 +179,18 @@ if FRONTEND_DIR.exists():
                             media_type="application/manifest+json")
 
 
-def _lan_ip() -> str:
-    """Best-effort local network IP, printed so you can open the app on a phone."""
+def _lan_url() -> str | None:
+    """Best-effort LAN address, so you can open the app on a phone over Wi-Fi.
+
+    Printed to the console at startup only. It is deliberately not returned by
+    /api/health, because the Cloudflare tunnel would otherwise publish this
+    machine's private address to anyone holding the public URL.
+    """
+    port = os.environ.get("PORT", "8000")
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
             s.connect(("8.8.8.8", 80))  # no packet is actually sent
-            return s.getsockname()[0]
+            ip = s.getsockname()[0]
     except OSError:
-        return "127.0.0.1"
+        ip = "127.0.0.1"
+    return f"http://{ip}:{port}"

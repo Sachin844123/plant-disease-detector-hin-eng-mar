@@ -6,6 +6,9 @@ __pycache__/
 backend/models/*.pt
 backend/data/tts_cache/
 
+# Portable cloudflared binary (~55 MB) — re-download, don't commit
+tools/
+
 .ipynb_checkpoints/
 .DS_Store
 Thumbs.db
