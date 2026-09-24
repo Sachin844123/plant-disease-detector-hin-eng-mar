@@ -12,7 +12,7 @@ How to use the Plant Disease Detector — for farmers and agriculture staff.
 ### ॲप उघडणे
 
 1. फोनमध्ये दिलेली लिंक उघडा (Chrome मध्ये).
-2. वर **मराठी**, **हिंदी** किंवा **EN** निवडा. तुमची निवड लक्षात ठेवली जाते.
+2. ॲप पहिल्यांदा इंग्रजीत उघडते. वर **मराठी** दाबा. तुमची निवड लक्षात ठेवली जाते.
 3. Chrome मध्ये **"Add to Home screen"** दाबल्यास ॲप फोनवर इतर ॲपसारखे बसते.
 
 ### पानाचा फोटो काढणे
@@ -82,7 +82,7 @@ How to use the Plant Disease Detector — for farmers and agriculture staff.
 ### Open the app
 
 1. Open the link you were given in Chrome.
-2. Choose **मराठी**, **हिंदी** or **EN** at the top. The choice is remembered.
+2. The app opens in English the first time. Tap **मराठी** or **हिंदी** at the top to switch; the choice is remembered.
 3. **Add to Home screen** in Chrome installs it like any other app.
 
 ### Photograph a leaf
