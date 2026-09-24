@@ -14,7 +14,8 @@ import { showMap, nearbyOutbreak } from "./map.js";
 
 const API = ""; // same origin; set to "http://192.168.x.x:8000" only for a split dev setup
 
-let lang = load("lang") || "mr";
+// English on first visit; after that, whatever the farmer last picked.
+let lang = load("lang") || "en";
 let selectedFile = null;
 let lastUpload = null;   // the downscaled image, reused for the AI second opinion
 let lastResult = null;   // the advisory currently on screen
@@ -59,7 +60,8 @@ $("seeAllBtn").addEventListener("click", () => showView("history"));
 async function applyLanguage() {
   const s = t();
   document.documentElement.lang = s.htmlLang;
-  document.title = `${s.title} | Plant Disease Detector`;
+  // Keep the English name alongside, so the tab is recognisable in any language.
+  document.title = lang === "en" ? s.title : `${s.title} | Plant Disease Detector`;
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const v = s[el.dataset.i18n];
