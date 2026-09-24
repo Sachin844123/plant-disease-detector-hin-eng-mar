@@ -287,6 +287,8 @@ function render(data, { photoUrl }) {
 
   const unknown = !!data.unknown?.is_unknown;
   $("unknownNote").hidden = !unknown;
+  // A name the model cannot stand behind should not look like a verdict.
+  $("diagnosis").classList.toggle("is-unknown", unknown);
   $("lowConfNote").hidden = !data.low_confidence || unknown;
   $("lowConfText").textContent = s.lowConf;
 
