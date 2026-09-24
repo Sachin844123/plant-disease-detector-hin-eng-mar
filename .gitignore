@@ -18,3 +18,7 @@ Thumbs.db
 *.env
 .venv/
 venv/
+
+# Datasets downloaded for fine-tuning (large, re-fetchable)
+training/data/
+backend/data/scans.db
