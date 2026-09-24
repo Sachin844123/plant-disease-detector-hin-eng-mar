@@ -2,10 +2,10 @@
    installed to the home screen. Diagnosis itself still needs the server — the
    CNN runs there, not in the browser. */
 
-const CACHE = "plant-disease-v3";
+const CACHE = "plant-disease-v4";
 const SHELL = [
   "/",
-  "/app/styles.css",
+  "/app/css/styles.css",
   "/app/js/app.js",
   "/app/js/i18n.js",
   "/app/js/heatmap.js",
