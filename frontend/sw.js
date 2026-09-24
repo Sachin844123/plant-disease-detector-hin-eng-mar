@@ -2,7 +2,7 @@
    installed to the home screen. Diagnosis itself still needs the server — the
    CNN runs there, not in the browser. */
 
-const CACHE = "plant-disease-v1";
+const CACHE = "plant-disease-v2";
 const SHELL = [
   "/",
   "/app/styles.css",
@@ -39,19 +39,17 @@ self.addEventListener("fetch", (event) => {
   // than no diagnosis.
   if (url.pathname.startsWith("/api/")) return;
 
+  // Network first, cache as the offline fallback. Cache-first would pin
+  // phones to whatever app.js they saw first, so updates would never arrive.
   event.respondWith(
-    caches.match(request).then(
-      (cached) =>
-        cached ||
-        fetch(request)
-          .then((response) => {
-            if (response.ok && url.origin === self.location.origin) {
-              const copy = response.clone();
-              caches.open(CACHE).then((c) => c.put(request, copy));
-            }
-            return response;
-          })
-          .catch(() => caches.match("/"))
-    )
+    fetch(request)
+      .then((response) => {
+        if (response.ok && url.origin === self.location.origin) {
+          const copy = response.clone();
+          caches.open(CACHE).then((c) => c.put(request, copy));
+        }
+        return response;
+      })
+      .catch(() => caches.match(request).then((cached) => cached || caches.match("/")))
   );
 });
