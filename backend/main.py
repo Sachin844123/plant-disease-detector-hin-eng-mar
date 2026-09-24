@@ -12,14 +12,24 @@ from __future__ import annotations
 import hashlib
 import os
 import socket
+import time
+from collections import defaultdict, deque
+from contextlib import asynccontextmanager
 from pathlib import Path
+from typing import Literal
 
-from fastapi import FastAPI, File, HTTPException, Query, UploadFile
+from dotenv import load_dotenv
+
+# Must run before `ai` is imported: the assistant reads GROQ_API_KEY at import.
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
+from fastapi import FastAPI, File, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+from ai import AIRequestError, AIUnavailableError, assistant, build_advisory
 from inference import (
     CONFIDENCE_THRESHOLD,
     SUPPORTED_LANGUAGES,
@@ -34,11 +44,28 @@ TTS_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 MAX_UPLOAD_BYTES = 12 * 1024 * 1024  # phone photos are ~2-5 MB; 12 MB is generous
 ALLOWED_CONTENT_TYPES = {"image/jpeg", "image/png", "image/webp", "image/heic", "image/heif"}
+MAX_AUDIO_BYTES = 5 * 1024 * 1024  # 30 s of opus is ~250 KB
+AUDIO_EXTENSIONS = {"audio/webm": "webm", "audio/ogg": "ogg", "audio/mp4": "mp4",
+                    "audio/mpeg": "mp3", "audio/wav": "wav", "audio/x-m4a": "m4a"}
+LANG_PATTERN = "^(mr|hi|en)$"
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    warm_model()
+    if assistant.enabled:
+        for model in await assistant.missing_models():
+            print(f"[warn] Groq model '{model}' is not available to this key - "
+                  "set a current one in .env (https://console.groq.com/docs/models)")
+    yield
+
 
 app = FastAPI(
     title="Plant Disease Advisory API",
-    description="CNN leaf-disease diagnosis with remedies in Marathi, Hindi and English.",
-    version="1.0.0",
+    description="CNN leaf-disease diagnosis with remedies in Marathi, Hindi and English, "
+                "plus an optional Groq-powered assistant.",
+    version="2.0.0",
+    lifespan=lifespan,
 )
 
 # The PWA is served from this same origin in normal use. CORS stays open so the
@@ -51,7 +78,6 @@ app.add_middleware(
 )
 
 
-@app.on_event("startup")
 def warm_model() -> None:
     """Load the checkpoint at boot so the first farmer does not wait for it."""
     try:
@@ -61,6 +87,12 @@ def warm_model() -> None:
               + (f", val acc {acc:.2%}" if isinstance(acc, (int, float)) else ""))
     except ModelNotTrainedError as exc:
         print(f"[warn] {exc}")
+
+    if assistant.enabled:
+        print(f"[ok] AI assistant on: chat={assistant.chat_model}, "
+              f"vision={assistant.vision_model}, speech={assistant.stt_model}")
+    else:
+        print("[info] AI assistant off - add GROQ_API_KEY to .env to enable it")
 
     # Printed to the console only — never returned by the API, since the tunnel
     # would otherwise publish this machine's private address to the internet.
@@ -80,11 +112,12 @@ def health() -> dict:
         "metrics": predictor.metrics,
         "languages": list(SUPPORTED_LANGUAGES),
         "confidence_threshold": CONFIDENCE_THRESHOLD,
+        "ai": assistant.status(),
     }
 
 
 @app.get("/api/classes")
-def classes(lang: str = Query("mr", pattern="^(mr|hi|en)$")) -> dict:
+def classes(lang: str = Query("mr", pattern=LANG_PATTERN)) -> dict:
     """Every crop and disease the model can name — used by the in-app info sheet."""
     items = []
     for key, entry in predictor.remedies.items():
@@ -105,7 +138,7 @@ def classes(lang: str = Query("mr", pattern="^(mr|hi|en)$")) -> dict:
 @app.post("/api/predict")
 async def predict(
     file: UploadFile = File(...),
-    lang: str = Query("mr", pattern="^(mr|hi|en)$"),
+    lang: str = Query("mr", pattern=LANG_PATTERN),
 ) -> JSONResponse:
     if file.content_type and file.content_type not in ALLOWED_CONTENT_TYPES:
         raise HTTPException(415, f"Unsupported image type: {file.content_type}")
@@ -130,7 +163,7 @@ async def predict(
 # --------------------------------------------------------------------- TTS API
 class SpeakRequest(BaseModel):
     text: str = Field(..., min_length=1, max_length=2000)
-    lang: str = Field("mr", pattern="^(mr|hi|en)$")
+    lang: str = Field("mr", pattern=LANG_PATTERN)
 
 
 @app.post("/api/tts")
@@ -157,6 +190,185 @@ def tts(req: SpeakRequest) -> FileResponse:
             raise HTTPException(503, f"Speech generation failed (needs internet): {exc}") from exc
 
     return FileResponse(mp3_path, media_type="audio/mpeg", filename=f"advisory_{req.lang}.mp3")
+
+
+# ---------------------------------------------------------------------- AI APIs
+class RateLimiter:
+    """Sliding-window limit per client.
+
+    The Cloudflare tunnel makes this server public, and every AI call spends
+    the owner's Groq quota, so one visitor must not be able to drain it.
+    """
+
+    def __init__(self, limit: int, window_s: float) -> None:
+        self.limit = limit
+        self.window_s = window_s
+        self.hits: dict[str, deque] = defaultdict(deque)
+
+    def allow(self, key: str) -> bool:
+        now = time.monotonic()
+        q = self.hits[key]
+        while q and now - q[0] > self.window_s:
+            q.popleft()
+        if len(q) >= self.limit:
+            return False
+        q.append(now)
+        if len(self.hits) > 5000:  # forget idle clients so memory stays bounded
+            for k in [k for k, v in self.hits.items() if not v]:
+                del self.hits[k]
+        return True
+
+
+ai_limiter = RateLimiter(limit=int(os.environ.get("AI_RATE_LIMIT_PER_MIN", "20")), window_s=60)
+
+
+def _client_key(request: Request) -> str:
+    host = request.client.host if request.client else "unknown"
+    # Behind cloudflared every request arrives from localhost; the real
+    # visitor is in CF-Connecting-IP. Only trust that header from localhost.
+    if host in ("127.0.0.1", "::1"):
+        return request.headers.get("cf-connecting-ip", host)
+    return host
+
+
+def _guard_ai(request: Request) -> None:
+    if not assistant.enabled:
+        raise HTTPException(503, "AI assistant is off: set GROQ_API_KEY in .env.")
+    if not ai_limiter.allow(_client_key(request)):
+        raise HTTPException(429, "Too many AI requests. Please wait a minute.")
+
+
+def _ai_error(exc: Exception) -> HTTPException:
+    if isinstance(exc, AIRequestError):
+        return HTTPException(exc.status, str(exc))
+    return HTTPException(503, str(exc))
+
+
+class ChatMessage(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str = Field(..., min_length=1, max_length=1500)
+
+
+class ChatRequest(BaseModel):
+    lang: str = Field("mr", pattern=LANG_PATTERN)
+    messages: list[ChatMessage] = Field(..., min_length=1, max_length=16)
+    # Only the class name is taken from the client. The advisory text itself
+    # is looked up here, so a tampered request cannot feed the model fake doses.
+    class_name: str | None = Field(None, max_length=120)
+    confidence: float | None = Field(None, ge=0, le=1)
+    low_confidence: bool = False
+    alternatives: list[str] = Field(default_factory=list, max_length=5)
+    # The vision model's independent answer, when it disagreed with the CNN.
+    vision_match: str | None = Field(None, max_length=120)
+
+
+def _remedy(class_name: str | None) -> dict | None:
+    if not class_name or class_name.startswith("_"):
+        return None
+    return predictor.remedies.get(class_name)
+
+
+@app.post("/api/ai/chat")
+async def ai_chat(req: ChatRequest, request: Request) -> StreamingResponse:
+    """Follow-up questions about a diagnosis. Streams plain UTF-8 text."""
+    _guard_ai(request)
+    if req.messages[-1].role != "user":
+        raise HTTPException(422, "The last message must come from the user.")
+
+    advisory = None
+    entry = _remedy(req.class_name)
+    if entry:
+        alts = [
+            f"{e['crop']['en']} - {e['disease']['en']}"
+            for e in map(_remedy, req.alternatives) if e
+        ]
+        advisory = build_advisory(entry, req.lang, req.confidence, req.low_confidence, alts)
+
+        second = _remedy(req.vision_match) if req.vision_match != req.class_name else None
+        if second:
+            advisory += (
+                "\n\nSECOND OPINION — a separate vision AI looked at the same photo and "
+                "thinks it may instead be the disease below. The two models disagree, so "
+                "tell the farmer both possibilities and to confirm with an expert before "
+                "spraying. Use this advisory's doses if discussing this disease:\n"
+                + build_advisory(second, req.lang, None, False, [])
+            )
+
+    try:
+        chunks = await assistant.chat_stream(
+            [m.model_dump() for m in req.messages], req.lang, advisory
+        )
+    except (AIUnavailableError, AIRequestError) as exc:
+        raise _ai_error(exc) from exc
+
+    return StreamingResponse(
+        chunks,
+        media_type="text/plain; charset=utf-8",
+        # Stops proxies (including the Cloudflare tunnel) from buffering the
+        # stream, which would make the answer appear all at once at the end.
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
+
+
+@app.post("/api/ai/second-opinion")
+async def ai_second_opinion(
+    request: Request,
+    file: UploadFile = File(...),
+    lang: str = Query("mr", pattern=LANG_PATTERN),
+    cnn_class: str = Query(..., max_length=120),
+) -> dict:
+    """An independent vision-model read of the same photo, compared with the CNN."""
+    _guard_ai(request)
+    image_bytes = await file.read()
+    if not image_bytes or len(image_bytes) > MAX_UPLOAD_BYTES:
+        raise HTTPException(400, "Missing or oversized image.")
+
+    classes = [k for k in predictor.remedies if not k.startswith("_")]
+    try:
+        opinion = await assistant.second_opinion(image_bytes, classes)
+    except (AIUnavailableError, AIRequestError) as exc:
+        raise _ai_error(exc) from exc
+    except Exception as exc:  # PIL could not decode the image
+        raise HTTPException(400, f"Could not read the image: {exc}") from exc
+
+    best = opinion["best_match"]
+    if not opinion["is_plant_leaf"]:
+        verdict = "not_leaf"
+    elif best == cnn_class:
+        verdict = "agrees"
+    elif best == "OTHER":
+        verdict = "unknown"
+    else:
+        verdict = "disagrees"
+
+    entry = _remedy(best)
+    label = f"{entry['crop'][lang]} — {entry['disease'][lang]}" if entry else None
+    return {**opinion, "verdict": verdict, "best_match_label": label, "model": assistant.vision_model}
+
+
+@app.post("/api/ai/transcribe")
+async def ai_transcribe(
+    request: Request,
+    file: UploadFile = File(...),
+    lang: str = Query("mr", pattern=LANG_PATTERN),
+) -> dict:
+    """Speech to text for spoken questions."""
+    _guard_ai(request)
+    audio = await file.read()
+    if not audio:
+        raise HTTPException(400, "Empty recording.")
+    if len(audio) > MAX_AUDIO_BYTES:
+        raise HTTPException(413, "Recording too long.")
+
+    # Groq detects the format from the file extension, and browsers differ:
+    # Chrome records webm, Safari mp4.
+    base_type = (file.content_type or "audio/webm").split(";")[0].strip().lower()
+    ext = AUDIO_EXTENSIONS.get(base_type, "webm")
+    try:
+        text = await assistant.transcribe(audio, f"question.{ext}", lang)
+    except (AIUnavailableError, AIRequestError) as exc:
+        raise _ai_error(exc) from exc
+    return {"text": text, "language": lang}
 
 
 # ------------------------------------------------------------- PWA static files
