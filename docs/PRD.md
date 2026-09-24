@@ -56,7 +56,8 @@ cherry, maize, grape, orange, peach, bell pepper, potato, raspberry, soybean, sq
 strawberry, tomato). Five Maharashtra crops — cotton, soybean diseases, sugarcane, onion,
 pomegranate (15 classes) — recognised by the AI vision model when online.
 
-**Languages.** Marathi (default), Hindi, English — every string, the advisory, and speech.
+**Languages.** English (default on first visit), Marathi, Hindi — every string, the advisory,
+and speech. The farmer's choice is remembered on the phone.
 
 ## 5. Functional requirements
 
