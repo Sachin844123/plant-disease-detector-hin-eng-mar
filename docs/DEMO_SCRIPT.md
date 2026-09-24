@@ -20,7 +20,7 @@ A 6-minute run-through, the backup plan, and the questions judges are likely to 
 
 | Time | Show | Say |
 |---|---|---|
-| 0:00 | Home screen in **Marathi** | "A farmer in Maharashtra with a sick tomato plant has three options: guess, ask the shop that sells the spray, or travel to the KVK. We built a fourth: point the phone at the leaf." |
+| 0:00 | Home screen; tap **मराठी** (the app opens in English on first visit) | "A farmer in Maharashtra with a sick tomato plant has three options: guess, ask the shop that sells the spray, or travel to the KVK. We built a fourth: point the phone at the leaf." |
 | 0:30 | Tap the camera, hold the leaf too far, then too close in shadow | "Most wrong diagnoses start as bad photos. The camera checks light, glare, distance, shake and focus and gives one instruction at a time." |
 | 1:00 | Frame turns turmeric; take the photo | |
 | 1:15 | Result with heatmap on | "Diagnosis in under two seconds on a laptop CPU, no internet. The bright area is where the network looked — on the lesion, not the background. That is Grad-CAM." |
