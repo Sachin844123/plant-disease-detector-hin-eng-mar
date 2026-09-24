@@ -14,3 +14,7 @@ tools/
 Thumbs.db
 .vscode/
 .idea/
+
+*.env
+.venv/
+venv/
