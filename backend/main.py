@@ -29,6 +29,9 @@ from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+import advice
+import outbreaks
+import weather
 from ai import AIRequestError, AIUnavailableError, assistant, build_advisory
 from inference import (
     CONFIDENCE_THRESHOLD,
@@ -113,6 +116,13 @@ def health() -> dict:
         "languages": list(SUPPORTED_LANGUAGES),
         "confidence_threshold": CONFIDENCE_THRESHOLD,
         "ai": assistant.status(),
+        "features": {
+            "heatmap": True,
+            # Offline "this is not a leaf I know" check; needs a checkpoint from
+            # training/finetune_field.py, which stores the statistics it uses.
+            "unknown_detection": predictor.ood is not None,
+            "calibrated": predictor.temperature != 1.0,
+        },
     }
 
 
@@ -129,6 +139,8 @@ def classes(lang: str = Query("mr", pattern=LANG_PATTERN)) -> dict:
             "disease": entry["disease"][lang],
             "healthy": entry["healthy"],
             "severity": entry["severity"],
+            # False for crops only the AI vision model can name so far.
+            "cnn": key in predictor.class_names,
         })
     items.sort(key=lambda x: (x["crop"], x["disease"]))
     return {"count": len(items), "language": lang, "classes": items}
@@ -260,6 +272,9 @@ class ChatRequest(BaseModel):
     alternatives: list[str] = Field(default_factory=list, max_length=5)
     # The vision model's independent answer, when it disagreed with the CNN.
     vision_match: str | None = Field(None, max_length=120)
+    # Optional location, so answers about spraying can account for the forecast.
+    lat: float | None = Field(None, ge=-90, le=90)
+    lon: float | None = Field(None, ge=-180, le=180)
 
 
 def _remedy(class_name: str | None) -> dict | None:
@@ -294,6 +309,13 @@ async def ai_chat(req: ChatRequest, request: Request) -> StreamingResponse:
                 + build_advisory(second, req.lang, None, False, [])
             )
 
+    if req.lat is not None and req.lon is not None:
+        try:
+            forecast = weather.as_text(await weather.forecast(req.lat, req.lon))
+            advisory = (advisory or "") + "\n\nLOCAL WEATHER (use it when advising when to spray):\n" + forecast
+        except Exception:
+            pass  # weather is a bonus; never fail the answer over it
+
     try:
         chunks = await assistant.chat_stream(
             [m.model_dump() for m in req.messages], req.lang, advisory
@@ -323,6 +345,8 @@ async def ai_second_opinion(
     if not image_bytes or len(image_bytes) > MAX_UPLOAD_BYTES:
         raise HTTPException(400, "Missing or oversized image.")
 
+    # Every class with an advisory, including crops the CNN has not been
+    # trained on yet — for those the vision model is the only diagnosis.
     classes = [k for k in predictor.remedies if not k.startswith("_")]
     try:
         opinion = await assistant.second_opinion(image_bytes, classes)
@@ -338,6 +362,8 @@ async def ai_second_opinion(
         verdict = "agrees"
     elif best == "OTHER":
         verdict = "unknown"
+    elif best not in predictor.class_names:
+        verdict = "extended"  # a crop the CNN cannot name, e.g. cotton or onion
     else:
         verdict = "disagrees"
 
@@ -369,6 +395,77 @@ async def ai_transcribe(
     except (AIUnavailableError, AIRequestError) as exc:
         raise _ai_error(exc) from exc
     return {"text": text, "language": lang}
+
+
+@app.get("/api/advisory/{class_name:path}")
+def advisory(class_name: str, lang: str = Query("mr", pattern=LANG_PATTERN)) -> dict:
+    """Full advisory for one class, without a photo.
+
+    Used to reopen a saved scan in another language, and to show the remedy
+    for a crop that only the AI vision model recognised.
+    """
+    entry = _remedy(class_name)
+    if entry is None:
+        raise HTTPException(404, f"Unknown class: {class_name}")
+    result = {
+        "language": lang,
+        "prediction": predictor.describe(class_name, lang),
+        "alternatives": [],
+        "low_confidence": False,
+        "advice": advice.plan(entry, lang),
+        "disclaimer": predictor.remedies["_meta"]["disclaimer"][lang],
+    }
+    result["speech_text"] = predictor.speech_text(result, lang)
+    return result
+
+
+# ----------------------------------------------------------- weather + map APIs
+@app.get("/api/weather")
+async def spray_weather(lat: float = Query(..., ge=-90, le=90),
+                        lon: float = Query(..., ge=-180, le=180)) -> dict:
+    """48-hour spray windows, rain warning and humidity-driven disease risk."""
+    try:
+        return await weather.forecast(lat, lon)
+    except Exception as exc:
+        raise HTTPException(503, f"Weather service unavailable: {exc.__class__.__name__}") from exc
+
+
+class ReportRequest(BaseModel):
+    class_name: str = Field(..., max_length=120)
+    lat: float = Field(..., ge=-90, le=90)
+    lon: float = Field(..., ge=-180, le=180)
+    source: Literal["cnn", "vision"] = "cnn"
+
+
+report_limiter = RateLimiter(limit=10, window_s=60)
+
+
+@app.post("/api/report")
+def report(req: ReportRequest, request: Request) -> dict:
+    """Add one anonymous diagnosis to the outbreak map (opt-in on the phone)."""
+    if not report_limiter.allow(_client_key(request)):
+        raise HTTPException(429, "Too many reports.")
+    entry = _remedy(req.class_name)
+    if entry is None:
+        raise HTTPException(422, "Unknown class.")
+    if entry["healthy"]:
+        return {"stored": False}  # the map shows disease, not healthy leaves
+    outbreaks.record(req.class_name, req.lat, req.lon, req.source)
+    return {"stored": True, "cell_km": 5}
+
+
+@app.get("/api/outbreaks")
+def outbreak_map(days: int = Query(30, ge=1, le=365),
+                 lang: str = Query("mr", pattern=LANG_PATTERN)) -> dict:
+    """Diseases reported per ~5 km cell, localised for the map popups."""
+    cells = []
+    for row in outbreaks.summary(days):
+        entry = _remedy(row["class_name"])
+        if entry is None:
+            continue
+        cells.append({**row, "crop": entry["crop"][lang], "disease": entry["disease"][lang],
+                      "severity": entry["severity"]})
+    return {"days": days, "cell_km": 5, "cells": cells}
 
 
 # ------------------------------------------------------------- PWA static files
