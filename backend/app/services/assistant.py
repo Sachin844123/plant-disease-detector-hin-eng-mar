@@ -26,6 +26,8 @@ from typing import AsyncIterator
 
 from PIL import Image, ImageOps
 
+from app import config  # noqa: F401  (loads .env before GROQ_* are read below)
+
 DEFAULT_CHAT_MODEL = "openai/gpt-oss-120b"
 DEFAULT_VISION_MODEL = "qwen/qwen3.8-27b"
 DEFAULT_STT_MODEL = "whisper-large-v3-turbo"

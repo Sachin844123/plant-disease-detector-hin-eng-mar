@@ -45,7 +45,7 @@ from torchvision import transforms
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "backend"))
-from model import MEAN, STD, FeatureTap, build_model, eval_transforms, final_linear, save_checkpoint  # noqa: E402
+from app.ml.model import MEAN, STD, FeatureTap, build_model, eval_transforms, final_linear, save_checkpoint  # noqa: E402
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True  # a few PlantDoc files are truncated web downloads
 

@@ -11,15 +11,17 @@ import sqlite3
 import threading
 import time
 from contextlib import closing
-from pathlib import Path
 
-DB_PATH = Path(__file__).resolve().parent / "data" / "scans.db"
+from app.config import SCANS_DB
+
+DB_PATH = SCANS_DB
 CELL_DEG = 0.05  # ~5.5 km at Indian latitudes: shows a village cluster, not a farm
 
 _lock = threading.Lock()
 
 
 def _connect() -> sqlite3.Connection:
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS reports (

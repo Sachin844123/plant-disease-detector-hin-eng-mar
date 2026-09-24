@@ -8,11 +8,11 @@ pathogen type recorded in remedies.json.
 from __future__ import annotations
 
 import json
-from pathlib import Path
 
-DATA_DIR = Path(__file__).resolve().parent / "data"
-PRICES: dict = json.loads((DATA_DIR / "prices.json").read_text(encoding="utf-8"))
-ORGANIC: dict = json.loads((DATA_DIR / "organic.json").read_text(encoding="utf-8"))
+from app.config import ORGANIC_PATH, PRICES_PATH
+
+PRICES: dict = json.loads(PRICES_PATH.read_text(encoding="utf-8"))
+ORGANIC: dict = json.loads(ORGANIC_PATH.read_text(encoding="utf-8"))
 
 
 def _costed(item: dict, litres: float) -> dict:

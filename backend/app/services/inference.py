@@ -5,24 +5,14 @@ from __future__ import annotations
 import io
 import json
 import time
-from pathlib import Path
 
 import torch
 import torch.nn.functional as F
 from PIL import Image, ImageOps
 
-import advice
-from model import FeatureTap, build_model, cam_layer, eval_transforms
-
-BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "models" / "plant_disease_model.pt"
-REMEDIES_PATH = BASE_DIR / "data" / "remedies.json"
-
-# Below this top-1 probability we tell the farmer we are unsure rather than
-# naming a disease. A wrong confident answer costs them a spray they did not need.
-CONFIDENCE_THRESHOLD = 0.60
-
-SUPPORTED_LANGUAGES = ("mr", "hi", "en")
+from app.config import CONFIDENCE_THRESHOLD, MODEL_PATH, REMEDIES_PATH, SUPPORTED_LANGUAGES
+from app.ml.model import FeatureTap, build_model, cam_layer, eval_transforms
+from app.services import advice
 
 # eval_transforms resizes the short side to img_size * 1.14, then centre-crops
 # img_size. The heatmap only covers that crop, so the phone needs to know where it is.
@@ -190,6 +180,12 @@ class Predictor:
                 round(side / w, 4), round(side / h, 4)]
 
     # --------------------------------------------------------------- advisory
+    def remedy(self, class_name: str | None) -> dict | None:
+        """The remedies.json entry for a class, or None (also for "_meta")."""
+        if not class_name or class_name.startswith("_"):
+            return None
+        return self.remedies.get(class_name)
+
     def describe(self, class_name: str, lang: str, confidence: float | None = None) -> dict:
         """Attach the localised advisory text to one class."""
         entry = self.remedies.get(class_name)
