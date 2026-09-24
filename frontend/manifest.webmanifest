@@ -1,5 +1,5 @@
 {
-  "name": "पीक रोग ओळख — Plant Disease Detector",
+  "name": "Plant Disease Detector — पीक रोग ओळख",
   "short_name": "पीक रोग",
   "description": "Detect crop leaf diseases from a photo and get the remedy in Marathi, Hindi or English.",
   "start_url": "/",
@@ -8,7 +8,7 @@
   "orientation": "portrait",
   "background_color": "#F1F4EF",
   "theme_color": "#1E6B3A",
-  "lang": "mr",
+  "lang": "en",
   "categories": ["agriculture", "utilities", "education"],
   "icons": [
     { "src": "/app/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
