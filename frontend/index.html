@@ -7,6 +7,7 @@
   <meta name="description" content="Leaf disease detection with remedies in Marathi and Hindi" />
   <title>पीक रोग ओळख | Plant Disease Detector</title>
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="/app/icons/icon-192.png" />
   <link rel="apple-touch-icon" href="/app/icons/icon-192.png" />
   <link rel="stylesheet" href="/app/styles.css" />
 </head>
@@ -81,6 +82,15 @@
 
         <p id="lowConfNote" class="low-conf" hidden></p>
 
+        <!-- Independent read of the same photo by a Groq vision model -->
+        <div id="aiCheck" class="ai-check" hidden>
+          <p class="ai-check-title">
+            <span aria-hidden="true">🤖</span> <span data-i18n="aiCheckTitle">एआय दुसरे मत</span>
+          </p>
+          <p id="aiCheckText"></p>
+          <p id="aiCheckTip" class="ai-check-tip" hidden></p>
+        </div>
+
         <button id="speakBtn" class="speak-btn">
           <span class="icon" aria-hidden="true">🔊</span>
           <span id="speakLabel" data-i18n="listen">ऐका</span>
@@ -109,6 +119,27 @@
         <p id="pathogen" class="pathogen"></p>
         <p id="disclaimer" class="disclaimer"></p>
       </div>
+
+      <!-- Follow-up questions, typed or spoken -->
+      <section id="aiChat" class="chat-card" hidden>
+        <h3 class="chat-title">
+          <span aria-hidden="true">💬</span> <span data-i18n="askTitle">कृषी मित्राला विचारा</span>
+        </h3>
+        <p class="chat-hint" data-i18n="askHint"></p>
+        <div id="chatSuggestions" class="chips"></div>
+        <div id="chatLog" class="chat-log" aria-live="polite"></div>
+        <p id="chatStatus" class="chat-status" hidden></p>
+        <form id="chatForm" class="chat-input" autocomplete="off">
+          <button type="button" id="micBtn" class="mic-btn" hidden>
+            <span aria-hidden="true">🎤</span>
+          </button>
+          <input id="chatInput" type="text" maxlength="500" enterkeyhint="send"
+                 data-i18n-placeholder="askPlaceholder" />
+          <button type="submit" id="sendBtn" class="send-btn">
+            <span aria-hidden="true">➤</span>
+          </button>
+        </form>
+      </section>
 
       <button id="againBtn" class="capture-btn secondary full">
         <span class="icon" aria-hidden="true">↺</span>
