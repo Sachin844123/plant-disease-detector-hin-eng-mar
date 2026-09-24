@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#1E6B3A" />
   <meta name="description" content="Leaf disease detection with remedies in Marathi and Hindi" />
-  <title>पीक रोग ओळख | Plant Disease Detector</title>
+  <title>Plant Disease Detector</title>
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="icon" type="image/png" href="/app/icons/icon-192.png" />
   <link rel="apple-touch-icon" href="/app/icons/icon-192.png" />
@@ -67,13 +67,13 @@
     <svg class="decor decor-br" viewBox="0 0 400 400"><use href="#branch" transform="translate(400 0) scale(-1 1)" /></svg>
 
     <p class="desk-tagline">
-      <span data-i18n="deskTag1">निरोगी पिके</span>
-      <span data-i18n="deskTag2">समृद्ध भविष्य</span>
+      <span data-i18n="deskTag1">Healthy Plants</span>
+      <span data-i18n="deskTag2">Stronger Future</span>
       <svg class="swoosh" viewBox="0 0 200 24"><path d="M6 16C60 4 140 2 194 12" /></svg>
     </p>
     <p class="desk-slogan">
       <span class="ms fill">eco</span>
-      <span data-i18n="deskSlogan">शाश्वत शेतीसाठी स्मार्ट उपाय</span>
+      <span data-i18n="deskSlogan">Smart solutions for sustainable farming</span>
     </p>
   </div>
 
@@ -81,14 +81,14 @@
     <div class="brand">
       <span class="brand-mark ms fill" aria-hidden="true">eco</span>
       <div>
-        <h1 data-i18n="title">पीक रोग ओळख</h1>
-        <p class="tagline" data-i18n="tagline">पानाचा फोटो काढा, रोग व उपाय मिळवा</p>
+        <h1 data-i18n="title">Plant Disease Detector</h1>
+        <p class="tagline" data-i18n="tagline">Photograph a leaf, get the disease and its remedy</p>
       </div>
     </div>
     <div class="lang-switch" role="group" aria-label="Language">
-      <button class="lang-btn is-active" data-lang="mr">मराठी</button>
+      <button class="lang-btn" data-lang="mr">मराठी</button>
       <button class="lang-btn" data-lang="hi">हिंदी</button>
-      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn is-active" data-lang="en">EN</button>
     </div>
   </header>
 
@@ -101,13 +101,13 @@
         <section class="scan-panel">
           <button id="cameraBtn" class="lens" type="button">
             <span class="ms" aria-hidden="true">photo_camera</span>
-            <span class="sr-only" data-i18n="takePhoto">फोटो काढा</span>
+            <span class="sr-only" data-i18n="takePhoto">Take photo</span>
           </button>
-          <h2 data-i18n="scanTitle">पानाचा फोटो काढा</h2>
-          <p class="scan-sub" data-i18n="scanSub"></p>
+          <h2 data-i18n="scanTitle">Photograph a leaf</h2>
+          <p class="scan-sub" data-i18n="scanSub">The camera guides you to a clear photo</p>
           <label for="galleryInput" class="ghost-btn">
             <span class="ms" aria-hidden="true">photo_library</span>
-            <span data-i18n="choosePhoto">गॅलरीतून निवडा</span>
+            <span data-i18n="choosePhoto">Choose from gallery</span>
           </label>
           <input id="fileInput" type="file" accept="image/*" capture="environment" hidden />
           <input id="galleryInput" type="file" accept="image/*" hidden />
@@ -122,8 +122,8 @@
 
         <section id="recentBlock" class="recent" hidden>
           <div class="section-head">
-            <h3 data-i18n="recentTitle">अलीकडील तपासणी</h3>
-            <button id="seeAllBtn" class="text-btn" type="button" data-i18n="seeAll">सर्व पहा</button>
+            <h3 data-i18n="recentTitle">Recent checks</h3>
+            <button id="seeAllBtn" class="text-btn" type="button" data-i18n="seeAll">See all</button>
           </div>
           <ul id="recentList" class="scan-list"></ul>
         </section>
@@ -133,13 +133,13 @@
         <img id="preview" alt="" />
         <button id="diagnoseBtn" class="primary-btn" type="button">
           <span class="ms" aria-hidden="true">search</span>
-          <span data-i18n="diagnose">रोग तपासा</span>
+          <span data-i18n="diagnose">Diagnose</span>
         </button>
       </section>
 
       <section id="loading" class="loading" hidden>
         <div class="spinner" aria-hidden="true"></div>
-        <p data-i18n="analysing">विश्लेषण सुरू आहे...</p>
+        <p data-i18n="analysing">Analysing...</p>
       </section>
 
       <section id="error" class="note note-danger" hidden>
@@ -158,16 +158,16 @@
             <label class="switch">
               <input id="heatToggle" type="checkbox" checked />
               <span class="switch-track" aria-hidden="true"></span>
-              <span data-i18n="whereLooked">मॉडेलने कुठे पाहिले</span>
+              <span data-i18n="whereLooked">Where the model looked</span>
             </label>
-            <span class="heat-hint" data-i18n="heatHint"></span>
+            <span class="heat-hint" data-i18n="heatHint">The bright part decided the diagnosis</span>
           </figcaption>
         </figure>
 
         <div id="diagnosis" class="diagnosis">
           <p id="sourceBadge" class="source-badge" hidden>
             <span class="ms" aria-hidden="true">auto_awesome</span>
-            <span data-i18n="sourceAI"></span>
+            <span data-i18n="sourceAI">Identified by AI (online)</span>
           </p>
           <p class="crop-label" id="cropName"></p>
           <div class="diagnosis-head">
@@ -183,8 +183,8 @@
         <div id="unknownNote" class="note note-danger" hidden>
           <span class="ms" aria-hidden="true">help</span>
           <div>
-            <p class="note-title" data-i18n="unknownTitle"></p>
-            <p data-i18n="unknownText"></p>
+            <p class="note-title" data-i18n="unknownTitle">The model does not recognise this leaf</p>
+            <p data-i18n="unknownText">This photo does not look like the crops the model was trained on, so this diagnosis may be wrong. Take a close-up of a single leaf.</p>
           </div>
         </div>
 
@@ -195,30 +195,30 @@
 
         <button id="speakBtn" class="speak-btn" type="button">
           <span class="ms fill" aria-hidden="true">volume_up</span>
-          <span id="speakLabel" data-i18n="listen">ऐका</span>
+          <span id="speakLabel" data-i18n="listen">Listen</span>
         </button>
 
         <div id="aiCheck" class="ai-check" hidden>
           <p class="ai-title">
             <span class="ms" aria-hidden="true">auto_awesome</span>
-            <span data-i18n="aiCheckTitle">एआय दुसरे मत</span>
+            <span data-i18n="aiCheckTitle">AI second opinion</span>
           </p>
           <p id="aiCheckText"></p>
           <p id="aiCheckTip" class="ai-tip" hidden></p>
-          <button id="extendedBtn" class="ai-btn" type="button" hidden data-i18n="showAdvice"></button>
+          <button id="extendedBtn" class="ai-btn" type="button" hidden data-i18n="showAdvice">Show its remedy</button>
         </div>
 
         <section class="advice">
           <div class="advice-block">
-            <h3><span class="ms" aria-hidden="true">visibility</span><span data-i18n="symptoms">लक्षणे</span></h3>
+            <h3><span class="ms" aria-hidden="true">visibility</span><span data-i18n="symptoms">Symptoms</span></h3>
             <p id="symptoms"></p>
           </div>
           <div class="advice-block remedy">
-            <h3><span class="ms" aria-hidden="true">medication</span><span data-i18n="remedy">उपाय</span></h3>
+            <h3><span class="ms" aria-hidden="true">medication</span><span data-i18n="remedy">Remedy</span></h3>
             <p id="remedy"></p>
           </div>
           <div class="advice-block">
-            <h3><span class="ms" aria-hidden="true">shield</span><span data-i18n="prevention">प्रतिबंध</span></h3>
+            <h3><span class="ms" aria-hidden="true">shield</span><span data-i18n="prevention">Prevention</span></h3>
             <p id="prevention"></p>
           </div>
         </section>
@@ -226,29 +226,29 @@
         <!-- Styled as a shop bill: this is money the farmer is about to spend. -->
         <section id="costCard" class="bill" hidden>
           <div class="bill-head">
-            <h3><span class="ms" aria-hidden="true">payments</span><span data-i18n="costTitle"></span></h3>
+            <h3><span class="ms" aria-hidden="true">payments</span><span data-i18n="costTitle">Treatment cost</span></h3>
             <div class="stepper" role="group">
               <button id="acreMinus" type="button" aria-label="−"><span class="ms">remove</span></button>
               <output id="acreValue">1</output>
               <button id="acrePlus" type="button" aria-label="+"><span class="ms">add</span></button>
-              <span class="stepper-unit" data-i18n="acres"></span>
+              <span class="stepper-unit" data-i18n="acres">Acres</span>
             </div>
           </div>
           <p id="billSub" class="bill-sub"></p>
-          <p class="bill-choose" data-i18n="chooseOne"></p>
+          <p class="bill-choose" data-i18n="chooseOne">Use any one of these</p>
           <ul id="billList" class="bill-list"></ul>
           <div id="organicBlock" class="organic" hidden>
-            <h4><span class="ms" aria-hidden="true">spa</span><span data-i18n="organicTitle"></span></h4>
+            <h4><span class="ms" aria-hidden="true">spa</span><span data-i18n="organicTitle">Organic option</span></h4>
             <p id="organicText"></p>
             <ul id="organicList" class="bill-list"></ul>
           </div>
-          <p class="bill-note" data-i18n="priceNote"></p>
+          <p class="bill-note" data-i18n="priceNote">Approximate prices — check with your local agri-input shop.</p>
         </section>
 
         <section id="weatherResult" class="wx"></section>
 
         <details id="altBox" class="alt-box">
-          <summary data-i18n="otherPossible">इतर शक्यता</summary>
+          <summary data-i18n="otherPossible">Other possibilities</summary>
           <ul id="altList"></ul>
         </details>
 
@@ -258,9 +258,9 @@
         <section id="aiChat" class="chat" hidden>
           <h3 class="chat-title">
             <span class="ms" aria-hidden="true">forum</span>
-            <span data-i18n="askTitle">कृषी मित्राला विचारा</span>
+            <span data-i18n="askTitle">Ask Krishi Mitra</span>
           </h3>
-          <p class="chat-hint" data-i18n="askHint"></p>
+          <p class="chat-hint" data-i18n="askHint">Ask anything about this disease — type, or tap the mic and speak.</p>
           <div id="chatSuggestions" class="chips"></div>
           <div id="chatLog" class="chat-log" aria-live="polite"></div>
           <p id="chatStatus" class="chat-status" hidden></p>
@@ -278,7 +278,7 @@
 
         <button id="againBtn" class="secondary-btn" type="button">
           <span class="ms" aria-hidden="true">restart_alt</span>
-          <span data-i18n="again">दुसरा फोटो तपासा</span>
+          <span data-i18n="again">Check another photo</span>
         </button>
       </section>
 
@@ -288,27 +288,27 @@
     <!-- ========================================================= HISTORY -->
     <section id="view-history" class="view" hidden>
       <div class="section-head">
-        <h2 data-i18n="histTitle">तपासलेली पाने</h2>
-        <button id="clearHistoryBtn" class="text-btn danger" type="button" data-i18n="histClear"></button>
+        <h2 data-i18n="histTitle">Checked leaves</h2>
+        <button id="clearHistoryBtn" class="text-btn danger" type="button" data-i18n="histClear">Clear history</button>
       </div>
       <ul id="historyList" class="scan-list"></ul>
       <p id="historyEmpty" class="empty" hidden>
         <span class="ms" aria-hidden="true">history</span>
-        <span data-i18n="histEmpty"></span>
+        <span data-i18n="histEmpty">No leaves checked yet. Take your first photo.</span>
       </p>
     </section>
 
     <!-- ============================================================= MAP -->
     <section id="view-map" class="view" hidden>
-      <h2 data-i18n="mapTitle">परिसरातील रोग</h2>
+      <h2 data-i18n="mapTitle">Diseases near you</h2>
       <label class="consent">
         <span class="switch">
           <input id="shareToggle" type="checkbox" />
           <span class="switch-track" aria-hidden="true"></span>
         </span>
         <span>
-          <span class="consent-title" data-i18n="mapShare"></span>
-          <span class="consent-hint" data-i18n="mapShareHint"></span>
+          <span class="consent-title" data-i18n="mapShare">Show my checks on the map</span>
+          <span class="consent-hint" data-i18n="mapShareHint">Only the disease name and a 5 km area are shared. No photo, no name.</span>
         </span>
       </label>
       <div class="segmented" role="group" id="mapDays">
@@ -324,15 +324,15 @@
   <nav class="tabbar" aria-label="Sections">
     <button class="tab is-active" data-view="scan" type="button">
       <span class="ms" aria-hidden="true">center_focus_strong</span>
-      <span data-i18n="navScan">तपासा</span>
+      <span data-i18n="navScan">Scan</span>
     </button>
     <button class="tab" data-view="history" type="button">
       <span class="ms" aria-hidden="true">history</span>
-      <span data-i18n="navHistory">इतिहास</span>
+      <span data-i18n="navHistory">History</span>
     </button>
     <button class="tab" data-view="map" type="button">
       <span class="ms" aria-hidden="true">map</span>
-      <span data-i18n="navMap">नकाशा</span>
+      <span data-i18n="navMap">Map</span>
     </button>
   </nav>
 
@@ -346,7 +346,7 @@
     </p>
     <div class="cam-controls">
       <button id="camClose" class="cam-btn" type="button"><span class="ms">close</span></button>
-      <button id="camShutter" class="shutter" type="button"><span class="sr-only" data-i18n="camShutter"></span></button>
+      <button id="camShutter" class="shutter" type="button"><span class="sr-only" data-i18n="camShutter">Take photo</span></button>
       <button id="camFlash" class="cam-btn" type="button" hidden><span class="ms">flash_on</span></button>
       <span id="camSpacer" class="cam-btn-spacer"></span>
     </div>
