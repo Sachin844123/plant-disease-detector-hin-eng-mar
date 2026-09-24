@@ -16,6 +16,8 @@ voice output for farmers who cannot read.
 4. A **🔊 Listen** button reads the whole advisory aloud in Marathi or Hindi.
 5. If the model is less than 60% confident it says so instead of naming a disease, because a
    wrong confident answer costs the farmer a spray they did not need.
+6. **AI assistant (optional, via Groq):** a second AI model checks the photo independently, and
+   the farmer can ask follow-up questions — typed or **spoken** — and hear the answer read aloud.
 
 ---
 
@@ -39,6 +41,17 @@ The model is not included — you train it yourself, which is the point of the p
 3. `Runtime` → `Run all` (~25 minutes)
 4. The last cell downloads `plant_disease_model.pt` — put it in `backend/models/`
 
+### Turn on the AI assistant (optional, free)
+
+1. Get a free API key at [console.groq.com/keys](https://console.groq.com/keys)
+2. Paste it into `.env` (setup created it from `.env.example`):
+   ```
+   GROQ_API_KEY=gsk_...
+   ```
+3. Restart the server. The console prints `[ok] AI assistant on`.
+
+Without a key everything else works exactly as before; the AI panel is simply hidden.
+
 ### Run
 
 ```bat
@@ -53,11 +66,49 @@ Chrome will offer *Add to Home screen* — it installs as a real app icon.
 
 ---
 
+## The AI assistant
+
+The CNN stays the primary diagnosis — it is instant and runs on the laptop. Groq adds three
+layers on top, each of which fails quietly if the internet or the key is missing:
+
+| Feature | Groq model | What it does |
+|---|---|---|
+| **AI second opinion** | `qwen/qwen3.8-27b` (vision) | Looks at the same photo *without* being told the CNN's answer, then the server compares the two. Flags "this is not a leaf", "a different disease is likely", and photo problems (blurry, dark, too far). |
+| **Krishi Mitra chat** | `openai/gpt-oss-120b` | Follow-up questions in Marathi, Hindi or English, streamed as they are generated. Suggested questions are one tap away. |
+| **Voice questions** | `whisper-large-v3-turbo` | Tap 🎤, speak in Marathi or Hindi, and the answer is read back aloud automatically. |
+
+**Why the chat cannot invent a dose.** The browser sends only the class name; the server looks
+up that disease's advisory in `remedies.json` and hands it to the model with instructions to
+recommend only those products at those doses, never banned pesticides, and to send the
+farmer to their KVK or the Kisan Call Centre (1800-180-1551) otherwise. When the vision model
+disagrees with the CNN, both advisories are given, so the answer covers both possibilities.
+
+**Why the second opinion matters.** On a real field photo of tomato *early* blight, the CNN
+said *late* blight at 41% — PlantVillage is shot on plain backgrounds, field photos are not.
+The vision model named early blight correctly. Showing a judge this disagreement, and the
+app handling it honestly, is a stronger demo than a perfect score.
+
+**Protecting your key.** On the public Cloudflare URL anyone can use the app, so each visitor
+is limited to 20 AI requests a minute (`AI_RATE_LIMIT_PER_MIN` in `.env`). The key never
+leaves the server.
+
+**Models change.** Groq retires models regularly. The server checks at startup and prints
+`[warn] Groq model '...' is not available` if one of yours has gone — set a current one in
+`.env` from [console.groq.com/docs/models](https://console.groq.com/docs/models).
+
+**Voice input needs HTTPS.** Browsers only allow the microphone on `https://` or `localhost`,
+so the 🎤 button is hidden on a plain `http://192.168.x.x` Wi-Fi address. It works on the
+Cloudflare tunnel URL.
+
+---
+
 ## Project layout
 
 ```
 backend/
-  main.py               FastAPI server: /api/predict, /api/tts, /api/classes, /api/health
+  main.py               FastAPI server: /api/predict, /api/tts, /api/classes, /api/health,
+                        /api/ai/chat, /api/ai/second-opinion, /api/ai/transcribe
+  ai.py                 Groq client: chat, vision second opinion, speech-to-text
   inference.py          checkpoint loading, prediction, advisory lookup
   model.py              architecture + transforms (shared with the notebook)
   data/remedies.json    38 diseases × {symptoms, remedy, prevention} × {en, hi, mr}
@@ -70,7 +121,9 @@ training/
   train_plantvillage.ipynb   Colab notebook: data, training, evaluation, export
 
 scripts/
-  setup.bat  start.bat  make_dummy_model.py
+  setup.bat  start.bat  tunnel.bat  make_dummy_model.py
+
+.env.example            copy to .env and add GROQ_API_KEY (.env is git-ignored)
 ```
 
 ---
