@@ -273,6 +273,8 @@ async def _stream_text(stream) -> AsyncIterator[str]:
 def _as_request_error(exc: Exception) -> AIRequestError:
     """Map Groq SDK errors to a status the front end can act on."""
     status = getattr(exc, "status_code", None)
+    # The farmer sees a friendly message; the console gets the real cause.
+    print(f"[warn] Groq request failed: {exc.__class__.__name__} {status or ''} {str(exc)[:300]}")
     if status == 429:
         return AIRequestError("The AI service is busy. Please try again in a minute.", 429)
     if status in (401, 403):
