@@ -33,6 +33,9 @@
 - Redesigned for sunlight: Baloo 2 and Mukta (Devanagari-first) from Google Fonts, Material
   Symbols icons instead of emoji, bottom tab bar, photo-first result, bill-style cost card.
 - Indigo reserved for everything the online AI says.
+- Desktop view: the app sits in a phone-width column over a blurred-foliage backdrop with
+  taglines in all three languages (pure SVG/CSS, hidden on phones).
+- A photo flagged as unknown greys out the disease name so the warning leads.
 - Frontend split into ES modules; service worker caches modules, fonts and advisories.
 
 ### Data and safety
